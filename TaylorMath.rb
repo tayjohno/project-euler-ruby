@@ -77,7 +77,7 @@ module TaylorMath
 
 
 
-  # Integer Array Functions
+  # INTEGER ARRAY FUNCTIONS
 
   def self.sum(array)
     array.inject{ |sum, el| sum + el }
