@@ -29,6 +29,7 @@ As I continue working on these problems I hope to eventually work on supporting 
 Each problem is solved with a simple method. These methods can be found in a file named with the problem number, for instance "001.rb" for the first problem. Each of these methods are named with the number of the problem, for instance "one". So far each method takes a single optional parameter, if the parameter isn't provided, then the default paramater will match the wording of the original problem.
 
 ### Example Usage ###
+    ::ruby
     irb> load './001.rb'
     irb> one 1000
     => 233168
