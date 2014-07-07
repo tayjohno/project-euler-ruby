@@ -62,7 +62,7 @@ module TaylorMath
   def self.primes_less_than(number)
    return_array = []
     for i in 2..number
-      return_array += [i] if self.is_prime(i)
+      return_array += [i] if self.is_prime?(i)
     end
     return return_array
   end

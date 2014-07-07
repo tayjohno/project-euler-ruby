@@ -1,5 +1,5 @@
 load './TaylorMath.rb'
-load './Timer.rb'
+load './TaylorTimer.rb'
 load './solutions/001.rb'
 load './solutions/002.rb'
 load './solutions/003.rb'
