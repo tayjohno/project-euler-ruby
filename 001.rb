@@ -21,7 +21,7 @@ def one(max_number = 1000)
 
   # Get all multiples of 5 below the max (not in the list of threes).
   while fives < max_number
-    array += [fives] if TaylorMath.is_divisible_by(fives, 3)
+    array += [fives] if !TaylorMath.is_divisible_by(fives, 3)
     fives += 5
   end
 
