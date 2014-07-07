@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require '../TaylorMath.rb'
 
 #################################
 # Problem 3                     #
