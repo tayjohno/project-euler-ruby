@@ -1,4 +1,4 @@
-class TaylorMath
+module TaylorMath
 
   # PRIME NUMBER METHODS
 
