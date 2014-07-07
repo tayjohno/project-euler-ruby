@@ -1,10 +1,10 @@
 require './TaylorMath.rb'
 
-######################################
-# Problem 1                          #
-# ---------------------------------- #
-# Sum of Multiples of Three and Five #
-######################################
+#########################
+# Problem 6             #
+# --------------------- #
+# Sum Square Difference #
+#########################
 
 # Super concise version!!
 def six(max_number = 100)

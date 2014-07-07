@@ -5,6 +5,8 @@ module TaylorMath
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
     i = 2
+    return false if number <= 1
+    return true if number == 2
     return false if self.is_divisible_by(number, i)
     i += 1 if i.odd? # If even add one to check odd numbers
     i += 1 # If odd already add 2
