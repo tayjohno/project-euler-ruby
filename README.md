@@ -1,6 +1,6 @@
 # README #
 
-I am working on the problems at [EulerProblems.org](http://www.eulerproblems.org) in order to work on my Ruby programming skills. Starting this after having done some web work in RoR over the past year, but having never worked with vanilla Ruby.
+I am working on the problems at [ProjectEuler.net](http://www.projecteuler.net) in order to work on my Ruby programming skills. Starting this after having done some web work in RoR over the past year, but having never worked with vanilla Ruby.
 
 
 ## Current Goals ##
