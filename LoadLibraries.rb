@@ -1,0 +1,7 @@
+load './TaylorMath.rb'
+load './Timer.rb'
+load './01.rb'
+load './02.rb'
+load './03.rb'
+load './04.rb'
+load './05.rb'
