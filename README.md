@@ -6,14 +6,14 @@ I am working on the problems at [EulerProblems.org](http://www.eulerproblems.org
 ## Current Goals ##
 
 * Clean Code
-  * Succinct
-  * Legible
-  * Documented
+    * Succinct
+    * Legible
+    * Documented
 * Good Code
-  * Avoid Hacks
-  * Avoid Bad Practices
+    * Avoid Hacks
+    * Avoid Bad Practices
 * Fast Code
-  * Go Beyond Naive Methods
+    * Go Beyond Naive Methods
 
 
 ## Future Goals ##
