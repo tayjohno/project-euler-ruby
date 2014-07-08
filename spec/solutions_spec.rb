@@ -23,3 +23,18 @@ RSpec.describe "two" do
     expect( two 8 ).to eq( 10 )
   end
 end
+
+RSpec.describe "three" do
+  it "should provide the answer with no parameters." do
+    expect( three ).to eq( 6857 )
+  end
+  it "should calculate specific answer for provided parameter." do
+    expect( three 600851475143 ).to eq( 6857 )
+  end
+  it "should work with primes." do
+    expect( three 17 ).to eq( 17 )
+  end
+  it "should work with cubes." do
+    expect( three 8 ).to eq( 2 )
+  end
+end
