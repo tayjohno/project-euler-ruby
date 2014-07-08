@@ -5,11 +5,11 @@ module TaylorMath
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
     i = 2
-    return false if number <= 1
-    return true if number == 2
-    return false if self.is_divisible_by(number, i)
-    i += 1 if i.odd? # If even add one to check odd numbers
-    i += 1 # If odd already add 2
+    if number <= 2
+      return false if number <= 1
+      return true
+    end
+    i += 1 
     while i <= Math.sqrt(number) do
       return false if self.is_divisible_by(number, i)
       i = i + 2
@@ -60,11 +60,18 @@ module TaylorMath
 
   # Returns all prime factors of a number.
   def self.primes_less_than(number)
-   return_array = []
-    for i in 2..number
-      return_array += [i] if self.is_prime?(i)
+    return_array = [false, false]
+    for i in 2..(number-1) do
+      if return_array[i] == nil
+        return_array[i] = true
+        j = i * 2
+        while j < number do
+          return_array[j] = false
+          j += i
+        end
+      end
     end
-    return return_array
+    return return_array.fill{ |i| return_array[i] ? i : false }.select{ |x| x }
   end
 
 
