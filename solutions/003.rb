@@ -9,7 +9,7 @@ require './TaylorMath.rb'
 def three(number = 600851475143)
 
   while true do
-    smallest_prime_factor = TaylorMath.smallest_prime_factor(number)
+    smallest_prime_factor = TaylorMath::Factors.smallest_prime_factor(number)
 
     # Stop calculation if the current largest factor is prime.
     break if number == smallest_prime_factor 
