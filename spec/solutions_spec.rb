@@ -38,3 +38,18 @@ RSpec.describe "three" do
     expect( three 8 ).to eq( 2 )
   end
 end
+
+RSpec.describe "four" do
+  it "should provide the answer with no parameters." do
+    expect( four ).to eq( 906609 )
+  end
+  it "should calculate specific answer for provided parameter." do
+    expect( four 99 ).to eq( 9009 )
+  end
+  it "should include the number given as a possibility." do
+    expect( four 11 ).to eq( 121 )
+  end
+  it "should work with single digit numbers as well" do
+    expect( four 1 ).to eq( 1 )
+  end
+end

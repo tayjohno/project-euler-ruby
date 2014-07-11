@@ -1,3 +1,5 @@
+require 'colorize'
+
 ###################
 # Timer Functions #
 ###################
@@ -35,6 +37,22 @@ class TaylorTimer
     timer.get_time
   end
 
+  def self.time_all
+    total_time = 0
+    %w[one two three four five six seven eight nine ten eleven twelve].each do |i|
+      time = time_block { send(i) }
+      total_time += time
+      case time
+      when 0..0.1
+        puts "#{i}:\t#{sprintf'%f6',time}".green
+      when 0.1..1
+        puts "#{i}:\t#{sprintf'%f6',time}".yellow
+      else
+        puts "#{i}:\t#{sprintf'%f6',time}".red
+      end
+    end
+    return total_time
+  end
 end
 
 

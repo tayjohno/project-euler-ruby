@@ -12,10 +12,10 @@ def four(max_number = 999)
   x = max_number
   max_palindrome = 0
 
-  while x > 1 do
+  while x >= 1 do
     break if (x ** 2) < max_palindrome  
     y = x
-    while y > 1 do
+    while y >= 1 do
       product = x*y
       if TaylorMath.is_palindrome(product)
         max_palindrome = product if product > max_palindrome
