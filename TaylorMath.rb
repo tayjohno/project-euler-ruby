@@ -86,6 +86,20 @@ module TaylorMath
     end
   end
 
+  class CoaltzSequence
+    @@sequence_length = {1 => 1}
+    def self.next(n)
+      #puts "#{n}"
+      return n/2 if n.even?
+      return 3*n + 1
+    end
+    def self.length(n)
+      #puts "#{n}:\t#{@@sequence_length[n]}"
+      return @@sequence_length[n] if @@sequence_length[n]
+      return @@sequence_length[n] = 1 + self.length(self.next(n))
+    end
+  end
+
   class Factors
     @@prime_factors = {}
     @@factors = {}
