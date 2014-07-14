@@ -125,3 +125,10 @@ RSpec.describe "fourteen" do
   end
   it "needs more tests"
 end
+
+RSpec.describe "fifteen" do
+  it "should provide the answer with no parameters." do
+    expect( fifteen ).to eq( 137846528820 )
+  end
+  it "needs more tests"
+end
