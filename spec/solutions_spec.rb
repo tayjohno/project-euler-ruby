@@ -64,37 +64,64 @@ RSpec.describe "five" do
 end
 
 RSpec.describe "six" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( six ).to eq( 25164150 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "seven" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( seven ).to eq( 104743 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "eight" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( eight ).to eq( 23514624000 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "nine" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( nine ).to eq( 31875000 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "ten" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( ten ).to eq( 142913828922 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "eleven" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( eleven ).to eq( 70600674 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "twelve" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( twelve ).to eq( 76576500 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "thirteen" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( thirteen ).to eq( 5537376230 )
+  end
+  it "needs more tests"
 end
 
 RSpec.describe "fourteen" do
-  it "needs tests"
+  it "should provide the answer with no parameters." do
+    expect( fourteen ).to eq( 837799 )
+  end
+  it "needs more tests"
 end

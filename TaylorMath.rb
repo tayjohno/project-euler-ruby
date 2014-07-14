@@ -6,12 +6,15 @@ module TaylorMath
 
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
-    i = 2
+    i = 3
+    # Special cases: less than 2
     if number <= 2
       return false if number <= 1
       return true
     end
-    i += 1 
+    # Return false if even
+    return false if number.even?
+    # Loop through all odd numbers and see if it's divisible by any
     while i <= Math.sqrt(number) do
       return false if self.is_divisible_by(number, i)
       i = i + 2
