@@ -53,3 +53,48 @@ RSpec.describe "four" do
     expect( four 1 ).to eq( 1 )
   end
 end
+
+RSpec.describe "five" do
+  it "should provide the answer with no parameters." do
+    expect( five ).to eq( 232792560 )
+  end
+  it "should calculate specific answer for provided parameter." do
+    expect( five 10 ).to eq( 2520 )
+  end
+end
+
+RSpec.describe "six" do
+  it "needs tests"
+end
+
+RSpec.describe "seven" do
+  it "needs tests"
+end
+
+RSpec.describe "eight" do
+  it "needs tests"
+end
+
+RSpec.describe "nine" do
+  it "needs tests"
+end
+
+RSpec.describe "ten" do
+  it "needs tests"
+end
+
+RSpec.describe "eleven" do
+  it "needs tests"
+end
+
+RSpec.describe "twelve" do
+  it "needs tests"
+end
+
+RSpec.describe "thirteen" do
+  it "needs tests"
+end
+
+RSpec.describe "fourteen" do
+  it "needs tests"
+end
