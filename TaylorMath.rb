@@ -103,6 +103,23 @@ module TaylorMath
     end
   end
 
+  class MatrixPath
+    @@values_hash={}
+    def self.length(width, height)
+      value = 0
+      if width == 0 || height == 0
+        return 1
+      elsif @@values_hash["#{width}x#{height}"]
+        return @@values_hash["#{width}x#{height}"]
+      else
+        value += self.length(width-1, height)
+        value += self.length(width, height-1)
+        @@values_hash["#{width}x#{height}"]=value
+        return value
+      end
+    end
+  end
+
   class Factors
     @@prime_factors = {}
     @@factors = {}
