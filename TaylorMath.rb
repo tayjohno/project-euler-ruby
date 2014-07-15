@@ -172,5 +172,115 @@ module TaylorMath
       self.prime_factors(number).each { |i| s1 += (s1.collect{|j| j * i}) }
       return s1
     end
+  end #END OF FACTORS CLASS
+
+
+  def self.number_to_words(n)
+    i = 0
+    before = ""
+    after = ""
+    string = ""
+    if n == 0
+      return ""
+    elsif n >= 1000
+      i = n / 1000
+      n = n % 1000
+      after = " thousand"
+      after += " " if n > 0
+      after += "and " if n < 100 && n > 0 
+    elsif n >= 100
+      i = n / 100
+      n = n % 100
+      after = " hundred"
+      after += " and " if n > 0
+
+    elsif n >= 10
+      case n
+      when 10..19
+        i = 0
+        case n
+        when 10
+          return "ten"
+        when 11
+          return "eleven"
+        when 12
+          return "twelve"
+        when 13
+          return "thirteen"
+        when 14
+          return "fourteen"
+        when 15
+          return "fifteen"
+        when 16
+          return "sixteen"
+        when 17
+          return "seventeen"
+        when 18
+          return "eighteen"
+        else
+          return "nineteen"
+        end
+        n = 0
+      else
+        i = 0
+        case n
+        when 20
+          return "twenty"
+        when 21..29
+          before = "twenty-"
+        when 30
+          return "thirty"
+        when 31..39
+          before = "thirty-"
+        when 40
+          return "forty"
+        when 41..49
+          before = "forty-"
+        when 50
+          return "fifty"
+        when 51..59
+          before = "fifty-"
+        when 60
+          return "sixty"
+        when 61..69
+          before = "sixty-"
+        when 70
+          return "seventy"
+        when 71..79
+          before = "seventy-"
+        when 80
+          return "eighty"
+        when 81..89
+          before = "eighty-"
+        when 90
+          return "ninety"
+        else
+          before = "ninety-"
+        end
+        n = n % 10
+      end
+    elsif n >= 1
+      case n
+      when 1
+        return "one"
+      when 2
+        return "two"
+      when 3
+        return "three"
+      when 4
+        return "four"
+      when 5
+        return "five"
+      when 6
+        return "six"
+      when 7
+        return "seven"
+      when 8
+        return "eight"
+      else
+        return "nine"
+      end
+    end
+    return before + self.number_to_words(i) + after + self.number_to_words(n)
   end
 end
