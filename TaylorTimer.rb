@@ -39,7 +39,7 @@ class TaylorTimer
 
   def self.time_all
     total_time = 0
-    %w[one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen].each do |i|
+    %w[one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen twenty].each do |i|
       time = time_block { send(i) }
       total_time += time
       case time
