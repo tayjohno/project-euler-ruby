@@ -40,7 +40,7 @@ module TaylorMath
         end
       end
     end
-    return return_array.fill{ |i| return_array[i] ? i : false }.select{ |x| x }
+    return return_array.fill{ |l| return_array[l] ? l : false }.select{ |x| x }
   end
 
 
@@ -179,7 +179,6 @@ module TaylorMath
     i = 0
     before = ""
     after = ""
-    string = ""
     if n == 0
       return ""
     elsif n >= 1000
