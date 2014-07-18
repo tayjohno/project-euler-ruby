@@ -29,10 +29,12 @@ class TaylorTimer
     @timing = false
   end
   
-  def self.time_block
+  def self.time_block(timeout=5)
     timer = self.new
     timer.start
-    yield
+    status = Timeout::timeout(timeout) {
+      yield
+    }
     timer.stop
     timer.get_time
   end
@@ -65,13 +67,20 @@ class TaylorTimer
           slowest = i_string
         end
       rescue Exception => e
-        time = 99999
+        if e.message == "execution expired"
+          time = -1
+        else
+          time = -2
+        end
       end
 
-      tabs = i.even? ? "." : " "
-      tabs = tabs * (30 - i_string.length) 
-      print_string = "#{i_string}:#{tabs}#{sprintf'%f6',time}"
+      tabs = (i.even? ? "." : " ") * (30 - i_string.length) 
+      print_string = "#{i_string}:#{tabs}#{sprintf'%f6',time} \u2713"
       case time
+      when -2
+        puts "#{i_string}:#{tabs}No Method".light_black
+      when -1
+        puts "#{i_string}:#{tabs}Timed Out".red
       when 0..0.1
         puts print_string.green
       when 0.1..1
@@ -79,7 +88,7 @@ class TaylorTimer
       when 0..90000
         puts print_string.red
       else
-        puts "#{i_string}:#{tabs}No Method".light_black
+        puts "#{i_string}:#{tabs}#{tab*2}Incorrect".red
       end
     end
     puts "                                        ".underline

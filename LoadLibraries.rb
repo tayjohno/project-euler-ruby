@@ -3,23 +3,10 @@ require 'bundler/setup'
 
 require './TaylorMath.rb'
 require './TaylorTimer.rb'
-require './solutions/001.rb'
-require './solutions/002.rb'
-require './solutions/003.rb'
-require './solutions/004.rb'
-require './solutions/005.rb'
-require './solutions/006.rb'
-require './solutions/007.rb'
-require './solutions/008.rb'
-require './solutions/009.rb'
-require './solutions/010.rb'
-require './solutions/011.rb'
-require './solutions/012.rb'
-require './solutions/013.rb'
-require './solutions/014.rb'
-require './solutions/015.rb'
-require './solutions/016.rb'
-require './solutions/017.rb'
-require './solutions/018.rb'
-require './solutions/019.rb'
-require './solutions/020.rb'
+(1..476).each do |i|
+  begin
+    require "./solutions/#{i.to_s.rjust(3,'0')}.rb"
+  rescue Exception => e
+    #do nothing -- file not implimented yet.
+  end
+end
