@@ -38,24 +38,59 @@ class TaylorTimer
   end
 
   def self.time_all
+    puts "                                        ".underline
+    puts "             SOLUTION TIMES             ".underline
+
     total_time = 0
-    %w[one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty].each do |i|
-      time = time_block { send(i) }
-      total_time += time
+    problems_implimented = 0
+    total_problems = 476
+
+    max_time = 0
+    slowest = nil
+
+    min_time = 999999
+    fastest = nil
+    
+    (1..total_problems).each do |i|
+      i_string = TaylorMath.number_to_words(i).tr('- ','')
+      begin
+        time = time_block { send( i_string ) } 
+        total_time += time
+        problems_implimented += 1
+        if time < min_time
+          min_time = time
+          fastest = i_string
+        elsif time > max_time
+          max_time = time
+          slowest = i_string
+        end
+      rescue Exception => e
+        time = 99999
+      end
+
+      tabs = i.even? ? "." : " "
+      tabs = tabs * (30 - i_string.length) 
+      print_string = "#{i_string}:#{tabs}#{sprintf'%f6',time}"
       case time
       when 0..0.1
-        puts "#{i}:#{i.length <= 6 ? "\t" : ''}\t#{sprintf'%f6',time}".green
+        puts print_string.green
       when 0.1..1
-        puts "#{i}:#{i.length <= 6 ? "\t" : ''}\t#{sprintf'%f6',time}".yellow
+        puts print_string.yellow
+      when 0..90000
+        puts print_string.red
       else
-        puts "#{i}:#{i.length <= 6 ? "\t" : ''}\t#{sprintf'%f6',time}".red
+        puts "#{i_string}:#{tabs}No Method".light_black
       end
     end
-    return total_time
+    puts "                                        ".underline
+    puts "                 TOTALS                 ".underline
+    puts "Total Time:                    #{sprintf'%f6',total_time}"
+    puts "Average Time:..................#{sprintf'%f6',total_time/problems_implimented}"
+    puts "Slowest Solution:#{' ' * (23 - slowest.length)}#{slowest}".red
+    puts "Slowest Time:..................#{sprintf'%f6',max_time}".red  
+    puts "Fastest Solution:#{' ' * (23 - fastest.length)}#{fastest}".green
+    puts "Fastest Time:..................#{sprintf'%f6',min_time}".green
+    puts "Solutions Implimented:           #{' ' * (3-problems_implimented.to_s.length)}#{problems_implimented}/#{total_problems}".cyan
+    puts
   end
 end
-
-
-#time {
-#  10 ** 100
-#}
