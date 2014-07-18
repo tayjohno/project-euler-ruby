@@ -1,4 +1,5 @@
 require 'set'
+#require 'profile'
 
 module TaylorMath
 
@@ -171,6 +172,9 @@ module TaylorMath
       s1 = Set.new [1]
       self.prime_factors(number).each { |i| s1 += (s1.collect{|j| j * i}) }
       return s1
+    end
+    def self.proper_divisors(number)
+      return self.all_factors(number).delete(number)
     end
   end #END OF FACTORS CLASS
 
