@@ -1,12 +1,23 @@
 require 'rubygems' 
 require 'bundler/setup'
+require 'logger'
 
 require './TaylorMath.rb'
 require './TaylorTimer.rb'
+
+log = Logger.new(STDOUT)
+if $VERBOSE
+	log.level = Logger::DEBUG
+else
+	log.level = Logger::WARN
+end
 (1..476).each do |i|
   begin
     require "./solutions/#{i.to_s.rjust(3,'0')}.rb"
-  rescue Exception => e
-    #do nothing -- file not implimented yet.
+  rescue LoadError => e
+  	log.info("./solutions/#{i.to_s.rjust(3,'0')}.rb not found")
+  	log.debug(e)
+  rescue Error => e
+  	log.warn(e)
   end
 end
