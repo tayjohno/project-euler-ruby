@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 ####################
 # Problem 22       #
@@ -15,7 +15,7 @@ def twentytwo(file_name = './Data/022_names.txt')
   sum = 0
   names.each_with_index do |name, index|
   	#puts "#{index}:\t#{name}=\t#{TaylorMath.sum(name.bytes.map{ |i| i - 64})} * #{index+1} = #{(index+1) * TaylorMath.sum(name.bytes.map{ |i| i - 64})} "
-    sum += (index+1) * TaylorMath.sum(name.bytes.map{ |i| i - 64})
+    sum += (index+1) * TaylorMath::Array.sum(name.bytes.map{ |i| i - 64})
   end
   return sum
 end

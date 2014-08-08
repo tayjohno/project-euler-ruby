@@ -1,5 +1,5 @@
 require 'colorize'
-require './LoadLibraries'
+require './euler'
 
 ###################
 # Timer Functions #
@@ -55,7 +55,7 @@ class TaylorTimer
     fastest = nil
     
     (1..total_problems).each do |i|
-      i_string = TaylorMath.number_to_words(i).tr('- ','')
+      i_string = TaylorMath.wordify(i).tr('- ','')
 
       # Capture any stdout from printing.
       original_stdout = $stdout

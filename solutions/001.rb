@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 ######################################
 # Problem 1                          #
@@ -26,6 +26,6 @@ def one(max_number = 1000)
   end
 
   # Return the sum of all values
-  return TaylorMath.sum(array)
+  return TaylorMath::Array.sum(array)
 
 end

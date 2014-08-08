@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 ##########################################
 # Problem 5                              #
@@ -11,7 +11,7 @@ require './TaylorMath.rb'
 def five(number = 20)
   least_common_multiple = 0
   primes = TaylorMath.primes_less_than(number)
-  prime_product = TaylorMath.product(primes)
+  prime_product = TaylorMath::Array.product(primes)
   while true
     least_common_multiple += prime_product
     is_divisible = true

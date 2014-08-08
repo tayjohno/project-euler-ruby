@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 #######################
 # Problem 10          #
@@ -7,5 +7,5 @@ require './TaylorMath.rb'
 #######################
 
 def ten( n = 2000000 )
-	TaylorMath.sum(TaylorMath.primes_less_than(n))
+	TaylorMath::Array.sum(TaylorMath.primes_less_than(n))
 end

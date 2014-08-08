@@ -16,7 +16,7 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 =end
 
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 ##############
 # Problem 14 #

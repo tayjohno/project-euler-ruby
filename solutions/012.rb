@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 ######################################
 # Problem 12                         #
@@ -15,7 +15,7 @@ def twelve(n = 500)
     # Compute next triangle, then factor it and count the factors
     triangle = TaylorMath::TriangleSequence.get_nth(i)
     factors = TaylorMath::Factors.all_factors(triangle)
-    factors_count = TaylorMath.count(factors)
+    factors_count = factors.count
  
     # Check to see if completed
     return triangle if factors_count >= n
