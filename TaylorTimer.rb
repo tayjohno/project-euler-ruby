@@ -30,7 +30,7 @@ class TaylorTimer
     @timing = false
   end
   
-  def self.time_block(timeout=5)
+  def self.time_block(timeout=60)
     timer = self.new
     timer.start
     status = Timeout::timeout(timeout) {
@@ -56,6 +56,10 @@ class TaylorTimer
     
     (1..total_problems).each do |i|
       i_string = TaylorMath.number_to_words(i).tr('- ','')
+
+      # Capture any stdout from printing.
+      original_stdout = $stdout
+      $stdout = StringIO.new
       begin
         time = time_block { send( i_string ) } 
         total_time += time
@@ -67,21 +71,21 @@ class TaylorTimer
           max_time = time
           slowest = i_string
         end
-      rescue Exception => e
-        if e.message == "execution expired"
-          time = -1
-        else
-          time = -2
-        end
+      rescue Timeout::Error => e
+        time = -1
+      rescue NoMethodError => e
+        time = -2
+      ensure
+        $stdout = original_stdout
       end
 
-      tabs = (i.even? ? "." : " ") * (30 - i_string.length) 
-      print_string = "#{i_string}:#{tabs}#{sprintf'%f6',time} \u2713"
+      spacer = (i.even? ? "." : " ")
+      print_string = "#{i_string}:".ljust(30, spacer)+"#{sprintf('%f6',time).rjust(10, spacer)} \u2713"
       case time
       when -2
-        puts "#{i_string}:#{tabs}No Method".light_black
+        puts "#{i_string}:".ljust(31, spacer)+"No Method".light_black
       when -1
-        puts "#{i_string}:#{tabs}Timed Out".red
+        puts "#{i_string}:".ljust(31, spacer)+"Timed Out".red
       when 0..0.1
         puts print_string.green
       when 0.1..1
@@ -89,17 +93,17 @@ class TaylorTimer
       when 0..90000
         puts print_string.red
       else
-        puts "#{i_string}:#{tabs}#{tab*2}Incorrect".red
+        puts "#{i_string}:"..ljust(31, spacer)+"#{tab*2}Incorrect".red
       end
     end
     puts "                                        ".underline
     puts "                 TOTALS                 ".underline
-    puts "Total Time:                    #{sprintf'%f6',total_time}"
-    puts "Average Time:..................#{sprintf'%f6',total_time/problems_implimented}"
-    puts "Slowest Solution:#{' ' * (23 - slowest.length)}#{slowest}".red
-    puts "Slowest Time:..................#{sprintf'%f6',max_time}".red  
-    puts "Fastest Solution:#{' ' * (23 - fastest.length)}#{fastest}".green
-    puts "Fastest Time:..................#{sprintf'%f6',min_time}".green
+    puts "Total Time:#{sprintf('%f6',total_time).rjust(29," ")}"
+    puts "Average Time:#{sprintf('%f6',total_time/problems_implimented).rjust(27, ".")}"
+    puts "Slowest Solution:#{slowest.rjust(23, '.')}".red
+    puts "Slowest Time:#{sprintf('%f6',max_time).rjust(27,'.')}".red  
+    puts "Fastest Solution:#{fastest.rjust(23, '.')}".green
+    puts "Fastest Time:#{sprintf('%f6',min_time).rjust(27,'.')}".green
     puts "Solutions Implimented:           #{' ' * (3-problems_implimented.to_s.length)}#{problems_implimented}/#{total_problems}".cyan
     puts
   end
