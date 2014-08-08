@@ -1,4 +1,4 @@
-require './LoadLibraries.rb'
+require './euler.rb'
 
 RSpec.describe "one" do
   it "should provide the answer with no parameters." do
