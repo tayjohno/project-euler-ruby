@@ -2,8 +2,8 @@ require 'rubygems'
 require 'bundler/setup'
 require 'logger'
 
-require './TaylorMath.rb'
-require './TaylorTimer.rb'
+require './lib/taylor_math.rb'
+require './lib/taylor_timer.rb'
 
 log = Logger.new(STDOUT)
 if $VERBOSE

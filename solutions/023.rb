@@ -1,4 +1,4 @@
-require './TaylorMath.rb'
+require './lib/taylor_math.rb'
 
 #####################
 # Problem 23        #
@@ -27,7 +27,7 @@ def twentythree(max=28123)
     i += 1
     j = i
   end
-  return TaylorMath.sum(a)
+  return TaylorMath::Array.sum(a)
 end
 
 
