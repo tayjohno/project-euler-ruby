@@ -1,30 +1,31 @@
 require 'set'
+require 'prime'
 require './lib/taylor_math/abundance.rb'
 require './lib/taylor_math/array.rb'
 require './lib/taylor_math/factors.rb'
 require './lib/taylor_math/triangle_sequence.rb'
 #require 'profile'
-
 module TaylorMath
+  @@is_prime = {  }
 
   # PRIME NUMBER METHODS
 
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
+    
+    # Special cases
+    return true if number == 2
+    return false if number.even? || number <= 1
+    return @@is_prime[number] if @@is_prime[number]
+
     i = 3
-    # Special cases: less than 2
-    if number <= 2
-      return false if number <= 1
-      return true
-    end
-    # Return false if even
-    return false if number.even?
+
     # Loop through all odd numbers and see if it's divisible by any
     while i <= Math.sqrt(number) do
-      return false if self.is_divisible_by(number, i)
+      return @@is_prime[number] = false if self.is_divisible_by(number, i)
       i = i + 2
     end
-    return true
+    return @@is_prime[number] = true
 	end
 
   # Returns true if the numerator is evenly divisible by the denominator
