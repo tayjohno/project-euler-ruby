@@ -9,6 +9,8 @@ require './lib/taylor_math.rb'
 # To convert an integer into characters, use the following
 # 100.to_s.chars
 # => ["1", "0", "0"]
+
+# This handy little one-liner does the trick pretty quick, but it could be a lot smarter.
 def twentyfour(perm=1000000,array=[0,1,2,3,4,5,6,7,8,9])
   array.map{|i| i.to_s}.permutation.to_a[perm - 1].join
 end
