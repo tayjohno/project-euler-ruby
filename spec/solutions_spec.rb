@@ -188,3 +188,10 @@ RSpec.describe "twentythree" do
   end
   it "needs more tests"
 end
+
+RSpec.describe "twentyfour" do
+  it "should provide the answer with no parameters." do
+    expect( twentyfour ).to eq( "2783915460" )
+  end
+  it "needs more tests"
+end
