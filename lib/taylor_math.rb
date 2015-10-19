@@ -4,6 +4,7 @@ require './lib/taylor_math/abundance.rb'
 require './lib/taylor_math/array.rb'
 require './lib/taylor_math/factors.rb'
 require './lib/taylor_math/triangle_sequence.rb'
+require './lib/taylor_math/probability.rb'
 #require 'profile'
 module TaylorMath
   @@is_prime = {  }
@@ -12,7 +13,7 @@ module TaylorMath
 
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
-    
+
     # Special cases
     return true if number == 2
     return false if number.even? || number <= 1
@@ -71,7 +72,7 @@ module TaylorMath
       n = n % 1000
       after = " thousand"
       after += " " if n > 0
-      after += "and " if n < 100 && n > 0 
+      after += "and " if n < 100 && n > 0
     elsif n >= 100
       i = n / 100
       n = n % 100
