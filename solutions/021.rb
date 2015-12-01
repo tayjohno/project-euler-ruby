@@ -6,7 +6,7 @@ require './lib/taylor_math.rb'
 # Amicable Numbers #
 ####################
 
-def twentyone(n = 10000)
+def twentyone(n = 10_000)
   i = 2
   return_sum = 0
   while i < n

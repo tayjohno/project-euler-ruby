@@ -7,5 +7,5 @@ require './lib/taylor_math.rb'
 ##################
 
 def fifteen(width = 20, height = 20)
-	TaylorMath::MatrixPath.length(width, height)
+  TaylorMath::MatrixPath.length(width, height)
 end

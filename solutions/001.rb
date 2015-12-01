@@ -7,7 +7,6 @@ require './lib/taylor_math.rb'
 ######################################
 
 def one(max_number = 1_000)
-
   # Initialize values
   array = []
   threes = 3
@@ -21,11 +20,10 @@ def one(max_number = 1_000)
 
   # Get all multiples of 5 below the max (not in the list of threes).
   while fives < max_number
-    array += [fives] if !TaylorMath.is_divisible_by(fives, 3)
+    array += [fives] unless TaylorMath.is_divisible_by(fives, 3)
     fives += 5
   end
 
   # Return the sum of all values
-  return TaylorMath::Array.sum(array)
-
+  TaylorMath::Array.sum(array)
 end

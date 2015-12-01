@@ -12,15 +12,13 @@ def five(number = 20)
   least_common_multiple = 0
   primes = TaylorMath.primes_less_than(number)
   prime_product = TaylorMath::Array.product(primes)
-  while true
+  loop do
     least_common_multiple += prime_product
     is_divisible = true
     for i in 1..number
-      is_divisible = false if !(is_divisible && TaylorMath.is_divisible_by(least_common_multiple, i))
+      is_divisible = false unless is_divisible && TaylorMath.is_divisible_by(least_common_multiple, i)
     end
-    if is_divisible
-      return least_common_multiple
-    end
+    return least_common_multiple if is_divisible
   end
 end
 

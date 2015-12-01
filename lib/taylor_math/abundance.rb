@@ -5,17 +5,16 @@ module TaylorMath
       return @@all_abundant_numbers if @@all_abundant_numbers
       @@all_abundant_numbers = []
       i = 12
-      while i < 28123
-        if abundance(i) > 0
-          @@all_abundant_numbers.push i
-        end
+      while i < 28_123
+        @@all_abundant_numbers.push i if abundance(i) > 0
         i += 1
       end
-      return @@all_abundant_numbers
+      @@all_abundant_numbers
     end
+
     def self.abundance(i)
       d = TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i)) - i
-      return d
+      d
     end
   end
 end

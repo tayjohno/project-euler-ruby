@@ -7,5 +7,5 @@ require './lib/taylor_math.rb'
 ####################
 
 def sixteen(n = 1000)
-	TaylorMath::Array.sum( (2**n).to_s.chars.map{ |c| c.to_i } )
+  TaylorMath::Array.sum((2**n).to_s.chars.map(&:to_i))
 end

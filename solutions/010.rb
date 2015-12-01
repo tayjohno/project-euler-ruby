@@ -6,6 +6,6 @@ require './lib/taylor_math.rb'
 # Summation of Primes #
 #######################
 
-def ten( n = 2000000 )
-	TaylorMath::Array.sum(TaylorMath.primes_less_than(n))
+def ten(n = 2_000_000)
+  TaylorMath::Array.sum(TaylorMath.primes_less_than(n))
 end

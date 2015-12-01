@@ -6,8 +6,7 @@ require './lib/taylor_math.rb'
 # Lexicographic permutations #
 ##############################
 
-
-def twentyfive(digits=1000)
+def twentyfive(digits = 1000)
   n = 1
   loop do
     fib = TaylorMath::FibonacciSequence.get_nth(n)
