@@ -6,7 +6,7 @@ require './lib/taylor_math.rb'
 # 10001st prime #
 #################
 
-def seven(n = 10001)
+def seven(n = 10_001)
   primes = 1
   return 0 if n <= 0
   return 2 if n == 1
@@ -17,5 +17,5 @@ def seven(n = 10001)
       return i if primes == n
     end
     i += 2
-  end 
+  end
 end

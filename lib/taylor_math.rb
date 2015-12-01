@@ -6,10 +6,14 @@ require './lib/taylor_math/factors.rb'
 require './lib/taylor_math/triangle_sequence.rb'
 require './lib/taylor_math/probability.rb'
 #require 'profile'
-module TaylorMath
-  @@is_prime = {  }
 
-  # PRIME NUMBER METHODS
+# This module is responsible for doing all sorts of mathy things that I wanted to impliment myself.
+# Some of these operations may have existing functionality in Ruby that I'm either unaware of, or
+# intentionally ignoring to make my solutions more interesting.
+module TaylorMath
+  # This object stores a hash of numbers and for each one states whether or not that number
+  # is in fact prime, for instance `{3 => true, 9 => false}`.
+  @is_prime = {}
 
   # Returns true if the number passed in is prime.
 	def self.is_prime?(number)
@@ -17,16 +21,16 @@ module TaylorMath
     # Special cases
     return true if number == 2
     return false if number.even? || number <= 1
-    return @@is_prime[number] if @@is_prime[number]
+    return @is_prime[number] if @is_prime[number]
 
     i = 3
 
     # Loop through all odd numbers and see if it's divisible by any
     while i <= Math.sqrt(number) do
-      return @@is_prime[number] = false if self.is_divisible_by(number, i)
+      return @is_prime[number] = false if self.is_divisible_by(number, i)
       i = i + 2
     end
-    return @@is_prime[number] = true
+    return @is_prime[number] = true
 	end
 
   # Returns true if the numerator is evenly divisible by the denominator

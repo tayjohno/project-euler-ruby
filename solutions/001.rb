@@ -6,7 +6,7 @@ require './lib/taylor_math.rb'
 # Sum of Multiples of Three and Five #
 ######################################
 
-def one(max_number = 1000)
+def one(max_number = 1_000)
 
   # Initialize values
   array = []
