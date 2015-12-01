@@ -19,6 +19,23 @@ module TaylorMath
     end
   end
 
+  class FibonacciSequence
+    @@sequence = [1,1]
+    def self.get_nth(n)
+      # Return if memoized
+      if @@sequence[n-1]
+        return @@sequence[n-1]
+      else
+        # Calculate all up to this one in order (avoids recursion)
+        (@@sequence.count..(n-1)).each do |i|
+          @@sequence[i] = @@sequence[i-1] + @@sequence[i-2]
+        end
+        @@sequence[n-1]
+      end
+    end
+  end
+
+
   class CoaltzSequence
     @@sequence_length = {1 => 1}
     def self.next(n)
