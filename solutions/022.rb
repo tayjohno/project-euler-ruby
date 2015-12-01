@@ -6,7 +6,7 @@ require './lib/taylor_math.rb'
 # Amicable Numbers #
 ####################
 
-def twentytwo(file_name = './Data/022_names.txt')
+def twentytwo(file_name = './data/022_names.txt')
   file = File.open(file_name)
   names = file.read
   names = names.split(',')
