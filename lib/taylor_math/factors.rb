@@ -1,27 +1,29 @@
 module TaylorMath
+  # This math library is made to deal with Factors (or numbers that evenly divide other numbers).
   class Factors
-    @@prime_factors = {}
-    @@factors = {}
+    @prime_factors = {}
 
     # Returns all prime factors of a number.
     def self.prime_factors(number)
-      return @@prime_factors[number] if @@prime_factors[number]
+      return @prime_factors[number] if @prime_factors[number]
 
       return_array = []
       n = number
       i = 2
+
+      # Largest possible factor is self, 2nd largest is sqrt(self).
       while i <= Math.sqrt(n)
         i = smallest_prime_factor(n, i)
         return_array += [i]
         n /= i
-        next unless n > 1 && @@prime_factors[n]
-        return_array += @@prime_factors[n]
-        n /= (TaylorMath::Array.product(@@prime_factors[n]) || 1)
+        next unless n > 1 && @prime_factors[n]
+        return_array += @prime_factors[n]
+        n /= (TaylorMath::Array.product(@prime_factors[n]) || 1)
         break
       end
+
       return_array += [n] if n != 1
-      @@prime_factors[number] = return_array
-      return_array
+      @prime_factors[number] = return_array
     end
 
     # Returns the smallest prime factor of a given number
@@ -33,7 +35,8 @@ module TaylorMath
       i += 1 if i.odd?
       i += 1
 
-      # Loop all odd numbers starting from the smallest to see if any are prime factors (2 is the only even prime)
+      # Loop all odd numbers starting from the smallest to see if any are prime factors (2 is the
+      # only even prime)
       while i <= Math.sqrt(number)
         return i if TaylorMath.is_divisible_by(number, i)
         i += 2

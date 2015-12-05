@@ -1,6 +1,9 @@
 require './euler.rb'
 
 RSpec.describe 'one' do
+  it 'should be defined' do
+    expect(defined?(one)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(one).to eq(233_168)
   end
@@ -13,6 +16,9 @@ RSpec.describe 'one' do
 end
 
 RSpec.describe 'two' do
+  it 'should be defined' do
+    expect(defined?(two)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(two).to eq(4_613_732)
   end
@@ -25,6 +31,9 @@ RSpec.describe 'two' do
 end
 
 RSpec.describe 'three' do
+  it 'should be defined' do
+    expect(defined?(three)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(three).to eq(6857)
   end
@@ -40,6 +49,9 @@ RSpec.describe 'three' do
 end
 
 RSpec.describe 'four' do
+  it 'should be defined' do
+    expect(defined?(four)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(four).to eq(906_609)
   end
@@ -55,6 +67,9 @@ RSpec.describe 'four' do
 end
 
 RSpec.describe 'five' do
+  it 'should be defined' do
+    expect(defined?(five)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(five).to eq(232_792_560)
   end
@@ -64,6 +79,9 @@ RSpec.describe 'five' do
 end
 
 RSpec.describe 'six' do
+  it 'should be defined' do
+    expect(defined?(six)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(six).to eq(25_164_150)
   end
@@ -71,6 +89,9 @@ RSpec.describe 'six' do
 end
 
 RSpec.describe 'seven' do
+  it 'should be defined' do
+    expect(defined?(seven)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(seven).to eq(104_743)
   end
@@ -78,6 +99,9 @@ RSpec.describe 'seven' do
 end
 
 RSpec.describe 'eight' do
+  it 'should be defined' do
+    expect(defined?(eight)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(eight).to eq(23_514_624_000)
   end
@@ -85,6 +109,9 @@ RSpec.describe 'eight' do
 end
 
 RSpec.describe 'nine' do
+  it 'should be defined' do
+    expect(defined?(nine)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(nine).to eq(31_875_000)
   end
@@ -92,6 +119,9 @@ RSpec.describe 'nine' do
 end
 
 RSpec.describe 'ten' do
+  it 'should be defined' do
+    expect(defined?(ten)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(ten).to eq(142_913_828_922)
   end
@@ -99,6 +129,9 @@ RSpec.describe 'ten' do
 end
 
 RSpec.describe 'eleven' do
+  it 'should be defined' do
+    expect(defined?(eleven)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(eleven).to eq(70_600_674)
   end
@@ -106,6 +139,9 @@ RSpec.describe 'eleven' do
 end
 
 RSpec.describe 'twelve' do
+  it 'should be defined' do
+    expect(defined?(twelve)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twelve).to eq(76_576_500)
   end
@@ -113,6 +149,9 @@ RSpec.describe 'twelve' do
 end
 
 RSpec.describe 'thirteen' do
+  it 'should be defined' do
+    expect(defined?(thirteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(thirteen).to eq(5_537_376_230)
   end
@@ -120,6 +159,9 @@ RSpec.describe 'thirteen' do
 end
 
 RSpec.describe 'fourteen' do
+  it 'should be defined' do
+    expect(defined?(fourteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(fourteen).to eq(837_799)
   end
@@ -127,6 +169,9 @@ RSpec.describe 'fourteen' do
 end
 
 RSpec.describe 'fifteen' do
+  it 'should be defined' do
+    expect(defined?(fifteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(fifteen).to eq(137_846_528_820)
   end
@@ -134,6 +179,9 @@ RSpec.describe 'fifteen' do
 end
 
 RSpec.describe 'sixteen' do
+  it 'should be defined' do
+    expect(defined?(sixteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(sixteen).to eq(1366)
   end
@@ -141,6 +189,9 @@ RSpec.describe 'sixteen' do
 end
 
 RSpec.describe 'seventeen' do
+  it 'should be defined' do
+    expect(defined?(seventeen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(seventeen).to eq(21_124)
   end
@@ -148,6 +199,9 @@ RSpec.describe 'seventeen' do
 end
 
 RSpec.describe 'eighteen' do
+  it 'should be defined' do
+    expect(defined?(eighteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(eighteen).to eq(1074)
   end
@@ -155,6 +209,9 @@ RSpec.describe 'eighteen' do
 end
 
 RSpec.describe 'nineteen' do
+  it 'should be defined' do
+    expect(defined?(nineteen)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(nineteen).to eq(171)
   end
@@ -162,6 +219,9 @@ RSpec.describe 'nineteen' do
 end
 
 RSpec.describe 'twenty' do
+  it 'should be defined' do
+    expect(defined?(twenty)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twenty).to eq(648)
   end
@@ -169,6 +229,9 @@ RSpec.describe 'twenty' do
 end
 
 RSpec.describe 'twentyone' do
+  it 'should be defined' do
+    expect(defined?(twentyone)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentyone).to eq(31_626)
   end
@@ -176,6 +239,9 @@ RSpec.describe 'twentyone' do
 end
 
 RSpec.describe 'twentytwo' do
+  it 'should be defined' do
+    expect(defined?(twentytwo)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentytwo).to eq(871_198_282)
   end
@@ -183,6 +249,9 @@ RSpec.describe 'twentytwo' do
 end
 
 RSpec.describe 'twentythree' do
+  it 'should be defined' do
+    expect(defined?(twentythree)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentythree).to eq(4_179_871)
   end
@@ -190,6 +259,9 @@ RSpec.describe 'twentythree' do
 end
 
 RSpec.describe 'twentyfour' do
+  it 'should be defined' do
+    expect(defined?(twentyfour)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentyfour).to eq('2783915460')
   end
@@ -197,6 +269,9 @@ RSpec.describe 'twentyfour' do
 end
 
 RSpec.describe 'twentyfive' do
+  it 'should be defined' do
+    expect(defined?(twentyfive)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentyfive).to eq(4782)
   end
@@ -204,8 +279,21 @@ RSpec.describe 'twentyfive' do
 end
 
 RSpec.describe 'twentysix' do
+  it 'should be defined' do
+    expect(defined?(twentysix)).to eq('method')
+  end
   it 'should provide the answer with no parameters.' do
     expect(twentysix).to eq(983)
   end
   it 'needs more tests'
 end
+
+# RSpec.describe 'template' do
+#   it 'should be defined' do
+#     expect(defined?(template)).to eq('method')
+#   end
+#   it 'should provide the answer with no parameters.' do
+#     expect(template).to eq(0)
+#   end
+#   it 'needs more tests'
+# end

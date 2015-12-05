@@ -1,4 +1,5 @@
 module TaylorMath
+  # This class is meant to help with any common tasks involving probability.
   class Probability
     def self.ncr(n, r)
       factorial(n) / (factorial(r) * factorial(n - r))
@@ -9,7 +10,7 @@ module TaylorMath
     end
 
     def self.objects_factor(hash)
-      factor = (hash['even'] + hash['odd']).reduce(1) do |memo, value|
+      (hash['even'] + hash['odd']).reduce(1) do |memo, value|
         memo * factorial(value)
       end
     end
