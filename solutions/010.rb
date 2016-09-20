@@ -7,5 +7,5 @@ require './lib/taylor_math.rb'
 #######################
 
 def ten( n = 2000000 )
-	TaylorMath::Array.sum(TaylorMath.primes_less_than(n))
+	TaylorMath::ArrayMath.sum(TaylorMath.primes_less_than(n))
 end

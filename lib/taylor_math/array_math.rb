@@ -1,6 +1,6 @@
 module TaylorMath
   # INTEGER ARRAY FUNCTIONS
-  module Array
+  module ArrayMath
     def self.sum(array)
       array.inject{ |sum, el| sum + el }
     end

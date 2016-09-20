@@ -26,6 +26,6 @@ def one(max_number = 1000)
   end
 
   # Return the sum of all values
-  return TaylorMath::Array.sum(array)
+  return TaylorMath::ArrayMath.sum(array)
 
 end

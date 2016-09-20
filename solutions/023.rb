@@ -27,7 +27,7 @@ def twentythree(max=28123)
     i += 1
     j = i
   end
-  return TaylorMath::Array.sum(a)
+  return TaylorMath::ArrayMath.sum(a)
 end
 
 

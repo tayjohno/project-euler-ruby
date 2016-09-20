@@ -17,7 +17,7 @@ module TaylorMath
         n = n / i
         if n > 1 && @@prime_factors[n]
           return_array += @@prime_factors[n]
-          n = n / (TaylorMath::Array.product(@@prime_factors[n]) || 1)
+          n = n / (TaylorMath::ArrayMath.product(@@prime_factors[n]) || 1)
           break
         end
       end

@@ -11,7 +11,7 @@ def eight(length = 13, number = 731671765313306249192251196744265747423553491949
   max_product = 0
   i = length
   while i <= int_array.length
-    product = TaylorMath::Array.product(int_array.slice(i-length..i-1))
+    product = TaylorMath::ArrayMath.product(int_array.slice(i-length..i-1))
     max_product = product if product > max_product
     i += 1
   end

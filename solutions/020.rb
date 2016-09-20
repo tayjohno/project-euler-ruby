@@ -13,5 +13,5 @@ def twenty(n = 100)
     sum = i * sum
     i -= 1
   end
-  TaylorMath::Array.sum( sum.to_s.split('').map{ |j| j.to_i } )
+  TaylorMath::ArrayMath.sum( sum.to_s.split('').map{ |j| j.to_i } )
 end

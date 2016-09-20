@@ -1,11 +1,15 @@
 require 'set'
 require './lib/taylor_math/abundance.rb'
-require './lib/taylor_math/array.rb'
+require './lib/taylor_math/array_math.rb'
 require './lib/taylor_math/factors.rb'
 require './lib/taylor_math/triangle_sequence.rb'
 #require 'profile'
 
 module TaylorMath
+
+  def self.factorial(number)
+    number > 1 ? number * factorial(number - 1) : 1
+  end
 
   # PRIME NUMBER METHODS
 
@@ -33,19 +37,33 @@ module TaylorMath
   end
 
   # Returns all prime factors of a number.
-  def self.primes_less_than(number)
-    return_array = [false, false]
-    for i in 2..(number-1) do
-      if return_array[i] == nil
-        return_array[i] = true
-        j = i * 2
-        while j < number do
-          return_array[j] = false
-          j += i
+  def self.primes_less_than(max)
+    primes_less_than_or_equal_to(max-1)
+  end
+
+  def self.primes_less_than_or_equal_to(max)
+    is_prime = Array.new((max-1)/2, true)
+
+    for p in 0..(is_prime.length/3) do
+      if is_prime[p]
+        i = index_to_int(p) * 3
+        step = index_to_int(p) * 2
+        while i <= max do
+          is_prime[int_to_index(i)] = false
+          i += step
         end
       end
     end
-    return return_array.fill{ |l| return_array[l] ? l : false }.select{ |x| x }
+
+    [2]+is_prime.fill{ |p| is_prime[p] ? index_to_int(p) : nil }.compact
+  end
+
+  def self.index_to_int i
+    i * 2 + 3
+  end
+
+  def self.int_to_index i
+    (i - 3)/2
   end
 
 
@@ -70,7 +88,7 @@ module TaylorMath
       n = n % 1000
       after = " thousand"
       after += " " if n > 0
-      after += "and " if n < 100 && n > 0 
+      after += "and " if n < 100 && n > 0
     elsif n >= 100
       i = n / 100
       n = n % 100

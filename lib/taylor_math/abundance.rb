@@ -14,7 +14,7 @@ module TaylorMath
       return @@all_abundant_numbers
     end
     def self.abundance(i)
-      d = TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i)) - i
+      d = TaylorMath::ArrayMath.sum(TaylorMath::Factors.proper_divisors(i)) - i
       return d
     end
   end

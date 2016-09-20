@@ -24,12 +24,12 @@ class TaylorTimer
       @stop_time - @start_time
     end
   end
-  
+
   def stop
     @stop_time = Time.now
     @timing = false
   end
-  
+
   def self.time_block(timeout=60)
     timer = self.new
     timer.start
@@ -53,7 +53,7 @@ class TaylorTimer
 
     min_time = 999999
     fastest = nil
-    
+
     (1..total_problems).each do |i|
       i_string = TaylorMath.wordify(i).tr('- ','')
 
@@ -61,7 +61,7 @@ class TaylorTimer
       original_stdout = $stdout
       $stdout = StringIO.new
       begin
-        time = time_block { send( i_string ) } 
+        time = time_block { send( i_string ) }
         total_time += time
         problems_implimented += 1
         if time < min_time
@@ -101,7 +101,7 @@ class TaylorTimer
     puts "Total Time:#{sprintf('%f6',total_time).rjust(29," ")}"
     puts "Average Time:#{sprintf('%f6',total_time/problems_implimented).rjust(27, ".")}"
     puts "Slowest Solution:#{slowest.rjust(23, '.')}".red
-    puts "Slowest Time:#{sprintf('%f6',max_time).rjust(27,'.')}".red  
+    puts "Slowest Time:#{sprintf('%f6',max_time).rjust(27,'.')}".red
     puts "Fastest Solution:#{fastest.rjust(23, '.')}".green
     puts "Fastest Time:#{sprintf('%f6',min_time).rjust(27,'.')}".green
     puts "Solutions Implimented:           #{' ' * (3-problems_implimented.to_s.length)}#{problems_implimented}/#{total_problems}".cyan

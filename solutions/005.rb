@@ -11,7 +11,7 @@ require './lib/taylor_math.rb'
 def five(number = 20)
   least_common_multiple = 0
   primes = TaylorMath.primes_less_than(number)
-  prime_product = TaylorMath::Array.product(primes)
+  prime_product = TaylorMath::ArrayMath.product(primes)
   while true
     least_common_multiple += prime_product
     is_divisible = true

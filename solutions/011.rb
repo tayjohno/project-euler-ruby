@@ -35,15 +35,15 @@ end
 
 module ElevenHelper
   def self.calculate_accross(matrix, x, y)
-    TaylorMath::Array.product([matrix[x][y],matrix[x+1][y],matrix[x+2][y],matrix[x+3][y]])
+    TaylorMath::ArrayMath.product([matrix[x][y],matrix[x+1][y],matrix[x+2][y],matrix[x+3][y]])
   end
   def self.calculate_down(matrix, x, y)
-    TaylorMath::Array.product([matrix[x][y],matrix[x][y+1],matrix[x][y+2],matrix[x][y+3]])
+    TaylorMath::ArrayMath.product([matrix[x][y],matrix[x][y+1],matrix[x][y+2],matrix[x][y+3]])
   end
   def self.calculate_diagonal_forward(matrix, x, y)
-    TaylorMath::Array.product([matrix[x][y],matrix[x+1][y+1],matrix[x+2][y+2],matrix[x+3][y+3]])
+    TaylorMath::ArrayMath.product([matrix[x][y],matrix[x+1][y+1],matrix[x+2][y+2],matrix[x+3][y+3]])
   end
   def self.calculate_diagonal_backward(matrix, x, y)
-    TaylorMath::Array.product([matrix[x][y],matrix[x-1][y+1],matrix[x-2][y+2],matrix[x-3][y+3]])
+    TaylorMath::ArrayMath.product([matrix[x][y],matrix[x-1][y+1],matrix[x-2][y+2],matrix[x-3][y+3]])
   end
 end
