@@ -6,12 +6,12 @@ require './lib/taylor_math.rb'
 # Amicable Numbers #
 ####################
 
-def twentyone(n = 10000)
+def twentyone(n = 10_000)
   i = 2
   return_sum = 0
   while i < n
-    divisor_sum = TaylorMath::ArrayMath.sum(TaylorMath::Factors.proper_divisors(i))
-    if i != divisor_sum && i == TaylorMath::ArrayMath.sum(TaylorMath::Factors.proper_divisors(divisor_sum))
+    divisor_sum = TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i))
+    if i != divisor_sum && i == TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(divisor_sum))
       return_sum += i
     end
     i += 1

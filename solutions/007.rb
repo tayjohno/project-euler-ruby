@@ -6,15 +6,16 @@ require './lib/taylor_math.rb'
 # 10001st prime #
 #################
 
-def seven(n = 10001)
-  primes = 0
+def seven(n = 10_001)
+  primes = 1
   return 0 if n <= 0
-  i = 1
-  while true
+  return 2 if n == 1
+  i = 3
+  loop do
     if TaylorMath.is_prime? i
       primes += 1
       return i if primes == n
     end
-    i += 1
-  end 
+    i += 2
+  end
 end

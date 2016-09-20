@@ -6,8 +6,7 @@ require './lib/taylor_math.rb'
 # Sum of Multiples of Three and Five #
 ######################################
 
-def one(max_number = 1000)
-
+def one(max_number = 1_000)
   # Initialize values
   array = []
   threes = 3
@@ -21,11 +20,10 @@ def one(max_number = 1000)
 
   # Get all multiples of 5 below the max (not in the list of threes).
   while fives < max_number
-    array += [fives] if !TaylorMath.is_divisible_by(fives, 3)
+    array += [fives] unless TaylorMath.is_divisible_by(fives, 3)
     fives += 5
   end
 
   # Return the sum of all values
-  return TaylorMath::ArrayMath.sum(array)
-
+  TaylorMath::Array.sum(array)
 end

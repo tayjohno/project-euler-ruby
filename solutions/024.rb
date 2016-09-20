@@ -6,17 +6,20 @@ require './lib/taylor_math.rb'
 # Lexicographic permutations #
 ##############################
 
+# To convert an integer into characters, use the following
+# 100.to_s.chars
+# => ["1", "0", "0"]
+
+
+# This handy little one-liner does the trick pretty quick, but it could be a lot smarter.
+# def twentyfour(perm = 1_000_000, array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+#   array.map(&:to_s).permutation.to_a[perm - 1].join
+# end
+
 
 def twentyfour(perm=1_000_000,array=[0,1,2,3,4,5,6,7,8,9])
   array = array.map{|i| i.to_s}.sort
   nth_permutation(array, perm)
-end
-
-# Assumes unique!
-# For non-unique permutations, my intuition says that for each match divide the permutations by the
-# factorial of the number of identical (e.g. if there are three '1's, divide by 3!, or 6).
-def permutations(array)
-  TaylorMath.factorial(array.length)
 end
 
 def nth_permutation(array, n)

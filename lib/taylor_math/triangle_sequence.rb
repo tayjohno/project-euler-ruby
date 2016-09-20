@@ -1,52 +1,74 @@
 module TaylorMath
+  # This class is meant to help with common problems involving Triangle Sequences.
   class TriangleSequence
-    @@sequence = [0]
+    @sequence = [0]
     def self.get_nth(n)
-      unless @@sequence[n]
-        self.triangle_number(n, starting_number:@@sequence.length-1, starting_value:@@sequence[@@sequence.length-1])
+      if !@sequence[n]
+        triangle_number(n,
+                        starting_number: @sequence.length - 1,
+                        starting_value: @sequence[@sequence.length - 1]
+                       )
       else
-        @@sequence[n]
+        @sequence[n]
       end
     end
-    def self.triangle_number(n, options={})
+
+    def self.triangle_number(n, options = {})
       x = options[:starting_number] || 0
-      y = options[:starting_value] || 0
-      while x < n do
+      while x < n
         x += 1
-        y = @@sequence[x] = @@sequence[x-1] + x
+        y = @sequence[x] = @sequence[x - 1] + x
       end
-      return y
+      y || options[:starting_value] || 0
     end
   end
 
-  class CoaltzSequence
-    @@sequence_length = {1 => 1}
-    def self.next(n)
-      #puts "#{n}"
-      return n/2 if n.even?
-      return 3*n + 1
-    end
-    def self.length(n)
-      #puts "#{n}:\t#{@@sequence_length[n]}"
-      return @@sequence_length[n] if @@sequence_length[n]
-      return @@sequence_length[n] = 1 + self.length(self.next(n))
-    end
-  end
-
-  class MatrixPath
-    @@values_hash={}
-    def self.length(width, height)
-      value = 0
-      if width == 0 || height == 0
-        return 1
-      elsif @@values_hash["#{width}x#{height}"]
-        return @@values_hash["#{width}x#{height}"]
+  # This class is meant to help with common problems involving Fibonacci Sequences.
+  class FibonacciSequence
+    @sequence = [1, 1]
+    def self.get_nth(n)
+      # Return if memoized
+      if @sequence[n - 1]
+        return @sequence[n - 1]
       else
-        value += self.length(width-1, height)
-        value += self.length(width, height-1)
-        @@values_hash["#{width}x#{height}"]=value
-        return value
+        # Calculate all up to this one in order (avoids recursion)
+        (@sequence.count..(n - 1)).each do |i|
+          @sequence[i] = @sequence[i - 1] + @sequence[i - 2]
+        end
+        @sequence[n - 1]
       end
+    end
+  end
+
+  # This class is meant to help with common problems involving Coaltz Sequences.
+  class CoaltzSequence
+    @sequence_length = { 1 => 1 }
+    def self.next(n)
+      # puts "#{n}"
+      return n / 2 if n.even?
+      3 * n + 1
+    end
+
+    def self.length(n)
+      # puts "#{n}:\t#{@sequence_length[n]}"
+      return @sequence_length[n] if @sequence_length[n]
+      @sequence_length[n] = 1 + length(self.next(n))
+    end
+  end
+
+  # This class is meant to help with common problems involving Matrix Paths.
+  class MatrixPath
+    @values_hash = {}
+    def self.length(width, height)
+      return 1 if width == 0 || height == 0
+
+      unless @values_hash["#{width}x#{height}"]
+        value = length(width - 1, height)
+        value += length(width, height - 1)
+        @values_hash["#{width}x#{height}"] = value
+      end
+
+      @values_hash["#{width}x#{height}"]
     end
   end
 end

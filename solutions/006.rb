@@ -8,7 +8,7 @@ require './lib/taylor_math.rb'
 
 # Super concise version!!
 def six(max_number = 100)
-  TaylorMath::ArrayMath.sum(1..max_number)**2-TaylorMath::ArrayMath.sum((1..max_number).map{|i|i**2})
+  TaylorMath::Array.sum(1..max_number)**2 - TaylorMath::Array.sum((1..max_number).map { |i| i**2 })
 end
 
 ## Longer, readable version
