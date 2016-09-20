@@ -6,8 +6,7 @@ module TaylorMath
       if !@sequence[n]
         triangle_number(n,
                         starting_number: @sequence.length - 1,
-                        starting_value: @sequence[@sequence.length - 1]
-                       )
+                        starting_value: @sequence[@sequence.length - 1])
       else
         @sequence[n]
       end
@@ -28,15 +27,13 @@ module TaylorMath
     @sequence = [1, 1]
     def self.get_nth(n)
       # Return if memoized
-      if @sequence[n - 1]
-        return @sequence[n - 1]
-      else
-        # Calculate all up to this one in order (avoids recursion)
-        (@sequence.count..(n - 1)).each do |i|
-          @sequence[i] = @sequence[i - 1] + @sequence[i - 2]
-        end
-        @sequence[n - 1]
+      return @sequence[n - 1] if @sequence[n - 1]
+
+      # Calculate all up to this one in order (avoids recursion)
+      (@sequence.count..(n - 1)).each do |i|
+        @sequence[i] = @sequence[i - 1] + @sequence[i - 2]
       end
+      @sequence[n - 1]
     end
   end
 
@@ -60,7 +57,7 @@ module TaylorMath
   class MatrixPath
     @values_hash = {}
     def self.length(width, height)
-      return 1 if width == 0 || height == 0
+      return 1 if width.zero? || height.zero?
 
       unless @values_hash["#{width}x#{height}"]
         value = length(width - 1, height)
