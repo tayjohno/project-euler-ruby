@@ -8,10 +8,10 @@ RSpec.describe 'one' do
     expect(one).to eq(233_168)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(one 19).to eq(78)
+    expect(one(19)).to eq(78)
   end
   it 'should only include numbers less than (not equal to) provided parameter.' do
-    expect(one 20).to eq(78)
+    expect(one(20)).to eq(78)
   end
 end
 
@@ -23,10 +23,10 @@ RSpec.describe 'two' do
     expect(two).to eq(4_613_732)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(two 50).to eq(44)
+    expect(two(50)).to eq(44)
   end
   it 'should only include numbers less than or equal to provided parameter.' do
-    expect(two 8).to eq(10)
+    expect(two(8)).to eq(10)
   end
 end
 
@@ -38,13 +38,13 @@ RSpec.describe 'three' do
     expect(three).to eq(6857)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(three 600_851_475_143).to eq(6857)
+    expect(three(600_851_475_143)).to eq(6857)
   end
   it 'should work with primes.' do
-    expect(three 17).to eq(17)
+    expect(three(17)).to eq(17)
   end
   it 'should work with cubes.' do
-    expect(three 8).to eq(2)
+    expect(three(8)).to eq(2)
   end
 end
 
@@ -56,13 +56,13 @@ RSpec.describe 'four' do
     expect(four).to eq(906_609)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(four 99).to eq(9009)
+    expect(four(99)).to eq(9009)
   end
   it 'should include the number given as a possibility.' do
-    expect(four 11).to eq(121)
+    expect(four(11)).to eq(121)
   end
   it 'should work with single digit numbers as well' do
-    expect(four 1).to eq(1)
+    expect(four(1)).to eq(1)
   end
 end
 
@@ -74,7 +74,7 @@ RSpec.describe 'five' do
     expect(five).to eq(232_792_560)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(five 10).to eq(2520)
+    expect(five(10)).to eq(2520)
   end
 end
 
@@ -284,6 +284,16 @@ RSpec.describe 'twentysix' do
   end
   it 'should provide the answer with no parameters.' do
     expect(twentysix).to eq(983)
+  end
+  it 'needs more tests'
+end
+
+RSpec.describe 'twentyseven' do
+  it 'should be defined' do
+    expect(defined?(twentyseven)).to eq('method')
+  end
+  it 'should provide the answer with no parameters.' do
+    expect(twentyseven).to eq(-59_231)
   end
   it 'needs more tests'
 end

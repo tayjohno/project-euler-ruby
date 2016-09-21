@@ -8,24 +8,21 @@ require './lib/taylor_math.rb'
 
 def twentythree(max = 28_123)
   a = (0..max).to_a
-  i = 0
-  j = 0
+  i = j = 0
   all_abundant_numbers = TaylorMath::Abundance.all_abundant_numbers
   length = all_abundant_numbers.length
 
   while i < length
     while j < length
       sum = all_abundant_numbers[i] + all_abundant_numbers[j]
-      if sum > 28_123
-        break
-      else
-        a[sum] = 0
-        j += 1
-      end
+      break if sum > 28_123
+      a[sum] = 0
+      j += 1
     end
     i += 1
     j = i
   end
+
   TaylorMath::Array.sum(a)
 end
 
