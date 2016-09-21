@@ -54,13 +54,13 @@ class TaylorTimer
     fastest = nil
 
     (1..total_problems).each do |i|
-      i_string = TaylorMath.wordify(i).tr('- ', '')
+      i_string = TaylorMath.wordify(i).gsub(/\b(?<!['â`])[a-z]/) { |match| match.capitalize }.tr('- ', '')
 
       # Capture any stdout from printing.
       original_stdout = $stdout
       $stdout = StringIO.new
       begin
-        time = time_block { send(i_string) }
+        time = time_block { Object.const_get(i_string).new.solve }
         total_time += time
         problems_implimented += 1
         if time < min_time
@@ -72,7 +72,7 @@ class TaylorTimer
         end
       rescue Timeout::Error => e
         time = -1
-      rescue NoMethodError => e
+      rescue NameError => e
         time = -2
       ensure
         $stdout = original_stdout

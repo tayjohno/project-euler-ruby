@@ -1,99 +1,113 @@
 require './euler.rb'
 
-RSpec.describe 'one' do
+RSpec.describe One do
   it 'should be defined' do
-    expect(defined?(one)).to eq('method')
+    expect(defined?(One)).to eq('constant')
+    expect(One).to respond_to(:new)
+    expect(One.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(one).to eq(233_168)
+    expect(One.new.solve).to eq(233_168)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(one(19)).to eq(78)
+    expect(One.new(19).solve).to eq(78)
   end
   it 'should only include numbers less than (not equal to) provided parameter.' do
-    expect(one(20)).to eq(78)
+    expect(One.new(20).solve).to eq(78)
   end
 end
 
-RSpec.describe 'two' do
+RSpec.describe Two do
   it 'should be defined' do
-    expect(defined?(two)).to eq('method')
+    expect(defined?(Two)).to eq('constant')
+    expect(Two).to respond_to(:new)
+    expect(Two.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(two).to eq(4_613_732)
+    expect(Two.new.solve).to eq(4_613_732)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(two(50)).to eq(44)
+    expect(Two.new(50).solve).to eq(44)
   end
   it 'should only include numbers less than or equal to provided parameter.' do
-    expect(two(8)).to eq(10)
+    expect(Two.new(8).solve).to eq(10)
   end
 end
 
-RSpec.describe 'three' do
+RSpec.describe Three do
   it 'should be defined' do
-    expect(defined?(three)).to eq('method')
+    expect(defined?(Three)).to eq('constant')
+    expect(Three).to respond_to(:new)
+    expect(Three.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(three).to eq(6857)
+    expect(Three.new.solve).to eq(6857)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(three(600_851_475_143)).to eq(6857)
+    expect(Three.new(600_851_475_143).solve).to eq(6857)
   end
   it 'should work with primes.' do
-    expect(three(17)).to eq(17)
+    expect(Three.new(17).solve).to eq(17)
   end
   it 'should work with cubes.' do
-    expect(three(8)).to eq(2)
+    expect(Three.new(8).solve).to eq(2)
   end
 end
 
-RSpec.describe 'four' do
+RSpec.describe Four do
   it 'should be defined' do
-    expect(defined?(four)).to eq('method')
+    expect(defined?(Four)).to eq('constant')
+    expect(Four).to respond_to(:new)
+    expect(Four.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(four).to eq(906_609)
+    expect(Four.new.solve).to eq(906_609)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(four(99)).to eq(9009)
+    expect(Four.new(99).solve).to eq(9009)
   end
   it 'should include the number given as a possibility.' do
-    expect(four(11)).to eq(121)
+    expect(Four.new(11).solve).to eq(121)
   end
   it 'should work with single digit numbers as well' do
-    expect(four(1)).to eq(1)
+    expect(Four.new(1).solve).to eq(1)
   end
 end
 
-RSpec.describe 'five' do
+RSpec.describe Five do
   it 'should be defined' do
-    expect(defined?(five)).to eq('method')
+    expect(defined?(Five)).to eq('constant')
+    expect(Five).to respond_to(:new)
+    expect(Five.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(five).to eq(232_792_560)
+    expect(Five.new.solve).to eq(232_792_560)
   end
   it 'should calculate specific answer for provided parameter.' do
-    expect(five(10)).to eq(2520)
+    expect(Five.new(10).solve).to eq(2520)
   end
 end
 
-RSpec.describe 'six' do
+RSpec.describe Six do
   it 'should be defined' do
-    expect(defined?(six)).to eq('method')
+    expect(defined?(Six)).to eq('constant')
+    expect(Six).to respond_to(:new)
+    expect(Six.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(six).to eq(25_164_150)
+    expect(Six.new.solve).to eq(25_164_150)
   end
   it 'needs more tests'
 end
 
-RSpec.describe 'seven' do
+RSpec.describe Seven do
   it 'should be defined' do
-    expect(defined?(seven)).to eq('method')
+    expect(defined?(Seven)).to eq('constant')
+    expect(Seven).to respond_to(:new)
+    expect(Seven.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(seven).to eq(104_743)
+    expect(Seven.new.solve).to eq(104_743)
   end
   it 'needs more tests'
 end

@@ -7,8 +7,14 @@ require './lib/taylor_math.rb'
 #########################
 
 # Super concise version!!
-def six(max_number = 100)
-  TaylorMath::Array.sum(1..max_number)**2 - TaylorMath::Array.sum((1..max_number).map { |i| i**2 })
+class Six
+  def initialize(max_number = 100)
+    @max_number = max_number
+  end
+
+  def solve
+    TaylorMath::Array.sum(1..@max_number)**2 - TaylorMath::Array.sum((1..@max_number).map { |i| i**2 })
+  end
 end
 
 ## Longer, readable version

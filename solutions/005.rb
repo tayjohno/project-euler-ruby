@@ -6,19 +6,25 @@ require './lib/taylor_math.rb'
 # Find the Least Common Multiple of 1..n #
 ##########################################
 
-# Iterate on the multiple of all prime numbers below given number
-# Could take further via union of all factors of all numbers, wouldn't need to do any more math.
-def five(number = 20)
-  least_common_multiple = 0
-  primes = TaylorMath.primes_less_than(number)
-  prime_product = TaylorMath::Array.product(primes)
-  loop do
-    least_common_multiple += prime_product
-    is_divisible = true
-    for i in 1..number
-      is_divisible = false unless is_divisible && TaylorMath.is_divisible_by(least_common_multiple, i)
+class Five
+  def initialize(number = 20)
+    @number = number
+  end
+
+  # Iterate on the multiple of all prime numbers below given number
+  # Could take further via union of all factors of all numbers, wouldn't need to do any more math.
+  def solve
+    lcm = 0 # Least Common Multiple
+    primes = TaylorMath.primes_less_than(@number)
+    prime_product = TaylorMath::Array.product(primes)
+    loop do
+      lcm += prime_product
+      is_divisible = true
+      (1..@number).each do |i|
+        is_divisible = false unless is_divisible && TaylorMath.is_divisible_by(lcm, i)
+      end
+      return lcm if is_divisible
     end
-    return least_common_multiple if is_divisible
   end
 end
 
