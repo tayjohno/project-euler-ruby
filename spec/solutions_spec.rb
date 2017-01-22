@@ -114,200 +114,240 @@ end
 
 RSpec.describe 'eight' do
   it 'should be defined' do
-    expect(defined?(eight)).to eq('method')
+    expect(defined?(Eight)).to eq('constant')
+    expect(Eight).to respond_to(:new)
+    expect(Eight.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(eight).to eq(23_514_624_000)
+    expect(Eight.new.solve).to eq(23_514_624_000)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'nine' do
   it 'should be defined' do
-    expect(defined?(nine)).to eq('method')
+    expect(defined?(Nine)).to eq('constant')
+    expect(Nine).to respond_to(:new)
+    expect(Nine.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(nine).to eq(31_875_000)
+    expect(Nine.new.solve).to eq(31_875_000)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'ten' do
   it 'should be defined' do
-    expect(defined?(ten)).to eq('method')
+    expect(defined?(Ten)).to eq('constant')
+    expect(Ten).to respond_to(:new)
+    expect(Ten.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(ten).to eq(142_913_828_922)
+    expect(Ten.new.solve).to eq(142_913_828_922)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'eleven' do
   it 'should be defined' do
-    expect(defined?(eleven)).to eq('method')
+    expect(defined?(Eleven)).to eq('constant')
+    expect(Eleven).to respond_to(:new)
+    expect(Eleven.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(eleven).to eq(70_600_674)
+    expect(Eleven.new.solve).to eq(70_600_674)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twelve' do
   it 'should be defined' do
-    expect(defined?(twelve)).to eq('method')
+    expect(defined?(Twelve)).to eq('constant')
+    expect(Twelve).to respond_to(:new)
+    expect(Twelve.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twelve).to eq(76_576_500)
+    expect(Twelve.new.solve).to eq(76_576_500)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'thirteen' do
   it 'should be defined' do
-    expect(defined?(thirteen)).to eq('method')
+    expect(defined?(Thirteen)).to eq('constant')
+    expect(Thirteen).to respond_to(:new)
+    expect(Thirteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(thirteen).to eq(5_537_376_230)
+    expect(Thirteen.new.solve).to eq(5_537_376_230)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'fourteen' do
   it 'should be defined' do
-    expect(defined?(fourteen)).to eq('method')
+    expect(defined?(Fourteen)).to eq('constant')
+    expect(Fourteen).to respond_to(:new)
+    expect(Fourteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(fourteen).to eq(837_799)
+    expect(Fourteen.new.solve).to eq(837_799)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'fifteen' do
   it 'should be defined' do
-    expect(defined?(fifteen)).to eq('method')
+    expect(defined?(Fifteen)).to eq('constant')
+    expect(Fifteen).to respond_to(:new)
+    expect(Fifteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(fifteen).to eq(137_846_528_820)
+    expect(Fifteen.new.solve).to eq(137_846_528_820)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'sixteen' do
   it 'should be defined' do
-    expect(defined?(sixteen)).to eq('method')
+    expect(defined?(Sixteen)).to eq('constant')
+    expect(Sixteen).to respond_to(:new)
+    expect(Sixteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(sixteen).to eq(1366)
+    expect(Sixteen.new.solve).to eq(1366)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'seventeen' do
   it 'should be defined' do
-    expect(defined?(seventeen)).to eq('method')
+    expect(defined?(Seventeen)).to eq('constant')
+    expect(Seventeen).to respond_to(:new)
+    expect(Seventeen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(seventeen).to eq(21_124)
+    expect(Seventeen.new.solve).to eq(21_124)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'eighteen' do
   it 'should be defined' do
-    expect(defined?(eighteen)).to eq('method')
+    expect(defined?(Eighteen)).to eq('constant')
+    expect(Eighteen).to respond_to(:new)
+    expect(Eighteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(eighteen).to eq(1074)
+    expect(Eighteen.new.solve).to eq(1074)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'nineteen' do
   it 'should be defined' do
-    expect(defined?(nineteen)).to eq('method')
+    expect(defined?(Nineteen)).to eq('constant')
+    expect(Nineteen).to respond_to(:new)
+    expect(Nineteen.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(nineteen).to eq(171)
+    expect(Nineteen.new.solve).to eq(171)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twenty' do
   it 'should be defined' do
-    expect(defined?(twenty)).to eq('method')
+    expect(defined?(Twenty)).to eq('constant')
+    expect(Twenty).to respond_to(:new)
+    expect(Twenty.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twenty).to eq(648)
+    expect(Twenty.new.solve).to eq(648)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentyone' do
   it 'should be defined' do
-    expect(defined?(twentyone)).to eq('method')
+    expect(defined?(TwentyOne)).to eq('constant')
+    expect(TwentyOne).to respond_to(:new)
+    expect(TwentyOne.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentyone).to eq(31_626)
+    expect(TwentyOne.new.solve).to eq(31_626)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentytwo' do
   it 'should be defined' do
-    expect(defined?(twentytwo)).to eq('method')
+    expect(defined?(TwentyTwo)).to eq('constant')
+    expect(TwentyTwo).to respond_to(:new)
+    expect(TwentyTwo.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentytwo).to eq(871_198_282)
+    expect(TwentyTwo.new.solve).to eq(871_198_282)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentythree' do
   it 'should be defined' do
-    expect(defined?(twentythree)).to eq('method')
+    expect(defined?(TwentyThree)).to eq('constant')
+    expect(TwentyThree).to respond_to(:new)
+    expect(TwentyThree.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentythree).to eq(4_179_871)
+    expect(TwentyThree.new.solve).to eq(4_179_871)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentyfour' do
   it 'should be defined' do
-    expect(defined?(twentyfour)).to eq('method')
+    expect(defined?(TwentyFour)).to eq('constant')
+    expect(TwentyFour).to respond_to(:new)
+    expect(TwentyFour.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentyfour).to eq('2783915460')
+    expect(TwentyFour.new.solve).to eq('2783915460')
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentyfive' do
   it 'should be defined' do
-    expect(defined?(twentyfive)).to eq('method')
+    expect(defined?(TwentyFive)).to eq('constant')
+    expect(TwentyFive).to respond_to(:new)
+    expect(TwentyFive.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentyfive).to eq(4782)
+    expect(TwentyFive.new.solve).to eq(4782)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentysix' do
   it 'should be defined' do
-    expect(defined?(twentysix)).to eq('method')
+    expect(defined?(TwentySix)).to eq('constant')
+    expect(TwentySix).to respond_to(:new)
+    expect(TwentySix.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentysix).to eq(983)
+    expect(TwentySix.new.solve).to eq(983)
   end
   it 'needs more tests'
 end
 
 RSpec.describe 'twentyseven' do
   it 'should be defined' do
-    expect(defined?(twentyseven)).to eq('method')
+    expect(defined?(TwentySeven)).to eq('constant')
+    expect(TwentySeven).to respond_to(:new)
+    expect(TwentySeven.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(twentyseven).to eq(-59_231)
+    expect(TwentySeven.new.solve).to eq(-59_231)
   end
   it 'needs more tests'
 end

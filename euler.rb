@@ -11,7 +11,7 @@ if $VERBOSE
 else
   log.level = Logger::WARN
 end
-(1..476).each do |i|
+(1..577).each do |i|
   begin
     require "./solutions/#{i.to_s.rjust(3, '0')}.rb"
   rescue LoadError => e

@@ -5,7 +5,6 @@ require './lib/taylor_math.rb'
 # -------------------------------------- #
 # Find the Least Common Multiple of 1..n #
 ##########################################
-
 class Five
   def initialize(number = 20)
     @number = number

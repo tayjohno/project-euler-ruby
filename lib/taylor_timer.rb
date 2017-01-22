@@ -45,7 +45,7 @@ class TaylorTimer
 
     total_time = 0
     problems_implimented = 0
-    total_problems = 476
+    total_problems = 577
 
     max_time = 0
     slowest = nil
@@ -70,10 +70,10 @@ class TaylorTimer
           max_time = time
           slowest = i_string
         end
-      rescue Timeout::Error => e
+      rescue Timeout::Error => _
         time = -1
-      rescue NameError => e
-        time = -2
+      rescue NameError => _
+        time = (Object.const_defined?(i_string) ? -3 : -2)
       ensure
         $stdout = original_stdout
       end
@@ -81,10 +81,12 @@ class TaylorTimer
       spacer = (i.even? ? '.' : ' ')
       print_string = "#{i_string}:".ljust(30, spacer) + "#{sprintf('%f6', time).rjust(10, spacer)} \u2713"
       case time
+      when -3
+        puts ("#{i_string}:".ljust(35, spacer) + 'Error').red
       when -2
-        puts "#{i_string}:".ljust(31, spacer) + 'No Method'.light_black
+        puts ("#{i_string}:".ljust(31, spacer) + 'No Method').light_black
       when -1
-        puts "#{i_string}:".ljust(31, spacer) + 'Timed Out'.red
+        puts ("#{i_string}:".ljust(31, spacer) + 'Timed Out').red
       when 0..0.1
         puts print_string.green
       when 0.1..1

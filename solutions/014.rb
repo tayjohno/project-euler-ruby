@@ -21,18 +21,23 @@ require './lib/taylor_math.rb'
 # ---------- #
 # Large sum  #
 ##############
-
-def fourteen(n = 1_000_000)
-  max_length = max_i = i = step = 1
-  # It seems like for any n >= 74, the answer is odd. Becuase I can't prove this however, I will leave this piece commented out.
-  # step = 2 if n > 74
-  while i < n
-    length = TaylorMath::CoaltzSequence.length(i)
-    if length > max_length
-      max_length = length
-      max_i = i
-    end
-    i += step
+class Fourteen
+  def initialize(n = 1_000_000)
+    @n = n
   end
-  max_i
+
+  def solve
+    max_length = max_i = i = step = 1
+    # It seems like for any n >= 74, the answer is odd. Becuase I can't prove this however, I will leave this piece commented out.
+    # step = 2 if n > 74
+    while i < @n
+      length = TaylorMath::CoaltzSequence.length(i)
+      if length > max_length
+        max_length = length
+        max_i = i
+      end
+      i += step
+    end
+    max_i
+  end
 end

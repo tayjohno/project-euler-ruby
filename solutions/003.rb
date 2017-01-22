@@ -5,7 +5,6 @@ require './lib/taylor_math.rb'
 # ----------------------------- #
 # Find the Largest Prime Factor #
 #################################
-
 class Three
   def initialize(number = 600_851_475_143)
     @number = number

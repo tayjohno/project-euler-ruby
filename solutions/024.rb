@@ -14,10 +14,16 @@ require './lib/taylor_math.rb'
 # def twentyfour(perm = 1_000_000, array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
 #   array.map(&:to_s).permutation.to_a[perm - 1].join
 # end
+class TwentyFour
+  def initialize(perm = 1_000_000, array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+    @perm = perm
+    @array = array
+  end
 
-def twentyfour(perm = 1_000_000, array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-  array = array.map(&:to_s).sort
-  nth_permutation(array, perm)
+  def solve
+    @array = @array.map(&:to_s).sort
+    nth_permutation(@array, @perm)
+  end
 end
 
 def nth_permutation(array, n)

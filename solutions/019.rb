@@ -5,13 +5,19 @@ require './lib/taylor_math.rb'
 # -------------------- #
 # Number Letter Counts #
 ########################
-
-def nineteen(start_date = Date.parse('1 Jan 1901'), end_date = Date.parse('31 Dec 2000'))
-  d = start_date
-  sum = 0
-  while d <= end_date
-    sum += 1 if d.sunday?
-    d = d.next_month
+class Nineteen
+  def initialize(start_date = Date.parse('1 Jan 1901'), end_date = Date.parse('31 Dec 2000'))
+    @start_date = start_date
+    @end_date = end_date
   end
-  sum
+
+  def solve
+    d = @start_date
+    sum = 0
+    while d <= @end_date
+      sum += 1 if d.sunday?
+      d = d.next_month
+    end
+    sum
+  end
 end

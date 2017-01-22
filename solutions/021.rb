@@ -5,16 +5,21 @@ require './lib/taylor_math.rb'
 # ---------------- #
 # Amicable Numbers #
 ####################
-
-def twentyone(n = 10_000)
-  i = 2
-  return_sum = 0
-  while i < n
-    divisor_sum = TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i))
-    if i != divisor_sum && i == TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(divisor_sum))
-      return_sum += i
-    end
-    i += 1
+class TwentyOne
+  def initialize(n = 10_000)
+    @n = n
   end
-  return_sum
+
+  def solve
+    i = 2
+    return_sum = 0
+    while i < @n
+      divisor_sum = TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i))
+      if i != divisor_sum && i == TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(divisor_sum))
+        return_sum += i
+      end
+      i += 1
+    end
+    return_sum
+  end
 end

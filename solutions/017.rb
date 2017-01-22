@@ -5,13 +5,18 @@ require './lib/taylor_math.rb'
 # -------------------- #
 # Number Letter Counts #
 ########################
-
-def seventeen(n = 1000)
-  i = 1
-  sum = 0
-  while i <= n
-    sum += TaylorMath.wordify(i).to_s.tr('- ', '').length
-    i += 1
+class Seventeen
+  def initialize(n = 1000)
+    @n = n
   end
-  sum
+
+  def solve
+    i = 1
+    sum = 0
+    while i <= @n
+      sum += TaylorMath.wordify(i).to_s.tr('- ', '').length
+      i += 1
+    end
+    sum
+  end
 end

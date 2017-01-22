@@ -5,7 +5,13 @@ require './lib/taylor_math.rb'
 # -------------- #
 # Lattice Paths  #
 ##################
+class Fifteen
+  def initialize(width = 20, height = 20)
+    @width = width
+    @height = height
+  end
 
-def fifteen(width = 20, height = 20)
-  TaylorMath::MatrixPath.length(width, height)
+  def solve
+    TaylorMath::MatrixPath.length(@width, @height)
+  end
 end

@@ -5,7 +5,6 @@ require './lib/taylor_math.rb'
 # ----------------------------------- #
 # Find the Largest Palendrome Product #
 #######################################
-
 class Four
   def initialize(max_number = 999)
     @max_number = max_number
@@ -20,7 +19,6 @@ class Four
       x.downto(1).each do |y|
         product = x * y
         next unless TaylorMath.is_palindrome(product)
-        puts "palindrome: #{product}"
         max_palindrome = product if product > max_palindrome
         break
       end
