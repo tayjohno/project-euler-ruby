@@ -29,11 +29,13 @@ class TaylorTimer
     @timing = false
   end
 
-  def self.time_block(timeout = 60)
+  def self.time_block(timeout: 60, times: 1)
     timer = new
     timer.start
-    status = Timeout.timeout(timeout) do
-      yield
+    times.times do
+      status = Timeout.timeout(timeout) do
+        yield
+      end
     end
     timer.stop
     timer.get_time
