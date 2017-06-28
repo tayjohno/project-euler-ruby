@@ -1,39 +1,37 @@
 # README #
 
-I am working on the problems at [ProjectEuler.net](http://www.projecteuler.net) in order to work on my Ruby programming skills. Starting this after having done some web work in RoR over the past year, but having never worked with vanilla Ruby.
+I am working on the problems at [ProjectEuler.net](http://www.projecteuler.net). I've decided to build all of these in vanilla Ruby, and decided not to include any Gems or frameworks other than those needed for testing. In cases where a certain function in vanilla Ruby makes a question trivially simple (1-statement solutions), I will generally try to build my own equivalent of said function.
 
 
 ## Current Goals ##
 
 * Clean Code
-    * Succinct
-    * Legible
-    * Documented
-* Good Code
-    * Avoid Hacks
-    * Avoid Bad Practices
+    * Succinct, Legible, Documented
+* Fully Tested
+    * Build out tests for each completed problem.
 * Fast Code
-    * Go Beyond Naive Methods
+    * Included benchmarking code can be run to determine slowest problems.
 
 
 ## Future Goals ##
 
-As I continue working on these problems I hope to eventually work on supporting code to help other people with building/testing their own libraries.
-
-* Timing/Benchmarking each function
-* Testing each function
+As I continue working on these problems, I hope to build out a suite that allows other users to run their own solutions against mine.
 
 
 ## Organization ##
 
-Each problem is solved with a simple method. These methods can be found in a file named with the problem number, for instance "001.rb" for the first problem. Each of these methods are named with the number of the problem, for instance "one". So far each method takes a single optional parameter, if the parameter isn't provided, then the default paramater will match the wording of the original problem.
+Each problem is solved with a simple method. These methods can be found in a file named with the problem number, for instance `solutions/001.rb` for the first problem. Each of these files contain a class named with the number of the problem, for instance `One`. Each initializer takes in any options, or can be initialized without options to solve the original question.
+
 
 ### Example Usage ###
-    ::ruby
-    irb> load './001.rb'
-    irb> one 1000
-    => 233168
-    irb> one
-    => 233168
-    irb> one 20
-    => 78
+```ruby
+    irb> load 'euler.rb'
+    irb> One.new(1000).solve
+     => 233168
+    irb> One.new.solve
+     => 233168
+    irb> One.new(20).solve
+     => 78
+    irb> TaylorTimer.time_all
+    # Goes through the test suite and runs all, printing timing results.
+```
