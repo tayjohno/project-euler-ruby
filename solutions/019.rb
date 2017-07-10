@@ -6,7 +6,7 @@ require './lib/taylor_math.rb'
 # Number Letter Counts #
 ########################
 class Nineteen
-  def initialize(start_date = Date.parse('1 Jan 1901'), end_date = Date.parse('31 Dec 2000'))
+  def initialize(start_date = Date.new(1901, 1, 1), end_date = Date.new(2000, 12, 31))
     @start_date = start_date
     @end_date = end_date
   end
