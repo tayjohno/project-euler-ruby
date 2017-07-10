@@ -112,7 +112,7 @@ RSpec.describe Seven do
   it 'needs more tests'
 end
 
-RSpec.describe 'eight' do
+RSpec.describe Eight do
   it 'should be defined' do
     expect(defined?(Eight)).to eq('constant')
     expect(Eight).to respond_to(:new)
@@ -124,7 +124,7 @@ RSpec.describe 'eight' do
   it 'needs more tests'
 end
 
-RSpec.describe 'nine' do
+RSpec.describe Nine do
   it 'should be defined' do
     expect(defined?(Nine)).to eq('constant')
     expect(Nine).to respond_to(:new)
@@ -136,7 +136,7 @@ RSpec.describe 'nine' do
   it 'needs more tests'
 end
 
-RSpec.describe 'ten' do
+RSpec.describe Ten do
   it 'should be defined' do
     expect(defined?(Ten)).to eq('constant')
     expect(Ten).to respond_to(:new)
@@ -148,7 +148,7 @@ RSpec.describe 'ten' do
   it 'needs more tests'
 end
 
-RSpec.describe 'eleven' do
+RSpec.describe Eleven do
   it 'should be defined' do
     expect(defined?(Eleven)).to eq('constant')
     expect(Eleven).to respond_to(:new)
@@ -160,7 +160,7 @@ RSpec.describe 'eleven' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twelve' do
+RSpec.describe Twelve do
   it 'should be defined' do
     expect(defined?(Twelve)).to eq('constant')
     expect(Twelve).to respond_to(:new)
@@ -172,7 +172,7 @@ RSpec.describe 'twelve' do
   it 'needs more tests'
 end
 
-RSpec.describe 'thirteen' do
+RSpec.describe Thirteen do
   it 'should be defined' do
     expect(defined?(Thirteen)).to eq('constant')
     expect(Thirteen).to respond_to(:new)
@@ -184,7 +184,7 @@ RSpec.describe 'thirteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'fourteen' do
+RSpec.describe Fourteen do
   it 'should be defined' do
     expect(defined?(Fourteen)).to eq('constant')
     expect(Fourteen).to respond_to(:new)
@@ -196,7 +196,7 @@ RSpec.describe 'fourteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'fifteen' do
+RSpec.describe Fifteen do
   it 'should be defined' do
     expect(defined?(Fifteen)).to eq('constant')
     expect(Fifteen).to respond_to(:new)
@@ -208,7 +208,7 @@ RSpec.describe 'fifteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'sixteen' do
+RSpec.describe Sixteen do
   it 'should be defined' do
     expect(defined?(Sixteen)).to eq('constant')
     expect(Sixteen).to respond_to(:new)
@@ -220,7 +220,7 @@ RSpec.describe 'sixteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'seventeen' do
+RSpec.describe Seventeen do
   it 'should be defined' do
     expect(defined?(Seventeen)).to eq('constant')
     expect(Seventeen).to respond_to(:new)
@@ -232,7 +232,7 @@ RSpec.describe 'seventeen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'eighteen' do
+RSpec.describe Eighteen do
   it 'should be defined' do
     expect(defined?(Eighteen)).to eq('constant')
     expect(Eighteen).to respond_to(:new)
@@ -244,7 +244,7 @@ RSpec.describe 'eighteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'nineteen' do
+RSpec.describe Nineteen do
   it 'should be defined' do
     expect(defined?(Nineteen)).to eq('constant')
     expect(Nineteen).to respond_to(:new)
@@ -256,7 +256,7 @@ RSpec.describe 'nineteen' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twenty' do
+RSpec.describe Twenty do
   it 'should be defined' do
     expect(defined?(Twenty)).to eq('constant')
     expect(Twenty).to respond_to(:new)
@@ -268,7 +268,7 @@ RSpec.describe 'twenty' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentyone' do
+RSpec.describe TwentyOne do
   it 'should be defined' do
     expect(defined?(TwentyOne)).to eq('constant')
     expect(TwentyOne).to respond_to(:new)
@@ -280,7 +280,7 @@ RSpec.describe 'twentyone' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentytwo' do
+RSpec.describe TwentyTwo do
   it 'should be defined' do
     expect(defined?(TwentyTwo)).to eq('constant')
     expect(TwentyTwo).to respond_to(:new)
@@ -292,7 +292,7 @@ RSpec.describe 'twentytwo' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentythree' do
+RSpec.describe TwentyThree do
   it 'should be defined' do
     expect(defined?(TwentyThree)).to eq('constant')
     expect(TwentyThree).to respond_to(:new)
@@ -304,7 +304,7 @@ RSpec.describe 'twentythree' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentyfour' do
+RSpec.describe TwentyFour do
   it 'should be defined' do
     expect(defined?(TwentyFour)).to eq('constant')
     expect(TwentyFour).to respond_to(:new)
@@ -316,7 +316,7 @@ RSpec.describe 'twentyfour' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentyfive' do
+RSpec.describe TwentyFive do
   it 'should be defined' do
     expect(defined?(TwentyFive)).to eq('constant')
     expect(TwentyFive).to respond_to(:new)
@@ -328,7 +328,7 @@ RSpec.describe 'twentyfive' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentysix' do
+RSpec.describe TwentySix do
   it 'should be defined' do
     expect(defined?(TwentySix)).to eq('constant')
     expect(TwentySix).to respond_to(:new)
@@ -340,7 +340,7 @@ RSpec.describe 'twentysix' do
   it 'needs more tests'
 end
 
-RSpec.describe 'twentyseven' do
+RSpec.describe TwentySeven do
   it 'should be defined' do
     expect(defined?(TwentySeven)).to eq('constant')
     expect(TwentySeven).to respond_to(:new)
@@ -352,12 +352,42 @@ RSpec.describe 'twentyseven' do
   it 'needs more tests'
 end
 
-# RSpec.describe 'template' do
+RSpec.describe TwentyEight do
+  it 'should be defined' do
+    expect(defined?(TwentyEight)).to eq('constant')
+    expect(TwentyEight).to respond_to(:new)
+    expect(TwentyEight.new).to respond_to(:solve)
+  end
+  it 'should provide the answer with no parameters.' do
+    expect(TwentyEight.new.solve).to eq(669171001)
+  end
+  it 'should provide the answer with a given parameter.' do
+    expect(TwentyEight.new(5).solve).to eq(101)
+  end
+end
+
+RSpec.describe TwentyNine do
+  it 'should be defined' do
+    expect(defined?(TwentyNine)).to eq('constant')
+    expect(TwentyNine).to respond_to(:new)
+    expect(TwentyNine.new).to respond_to(:solve)
+  end
+  it 'should provide the answer with no parameters.' do
+    expect(TwentyNine.new.solve).to eq(9183)
+  end
+  it 'should provide the answer with a given parameter.' do
+    expect(TwentyNine.new(5,5).solve).to eq(15)
+  end
+end
+
+# RSpec.describe Template do
 #   it 'should be defined' do
-#     expect(defined?(template)).to eq('method')
+#     expect(defined?(Template)).to eq('constant')
+#     expect(Template).to respond_to(:new)
+#     expect(Template.new).to respond_to(:solve)
 #   end
 #   it 'should provide the answer with no parameters.' do
-#     expect(template).to eq(0)
+#     expect(Template.new.solve).to eq(0)
 #   end
 #   it 'needs more tests'
 # end
