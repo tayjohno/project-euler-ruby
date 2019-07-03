@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TaylorMath
   # This class is meant to help with any common tasks involving probability.
   class Probability

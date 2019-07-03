@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'set'
 require 'prime'
 require './lib/taylor_math/abundance.rb'
@@ -32,6 +34,7 @@ module TaylorMath
     # Loop through all odd numbers and see if it's divisible by any
     while i <= Math.sqrt(number)
       return @is_prime[number] = false if is_divisible_by(number, i)
+
       i += 2
     end
     @is_prime[number] = true
@@ -77,8 +80,9 @@ module TaylorMath
 
   def self.primes_less_than(number)
     return_array = [false, false]
-    for i in 2..(number - 1) do
+    (2..(number - 1)).each do |i|
       next unless return_array[i].nil?
+
       return_array[i] = true
       j = i * 2
       while j < number
@@ -202,6 +206,7 @@ module TaylorMath
         return 'nine'
       end
     end
+
     before + wordify(i) + after + wordify(n)
   end
 end

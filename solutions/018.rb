@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 ########################
@@ -16,6 +18,7 @@ class Eighteen
 
   def max_triangle_path(x = 0, y = 0)
     return 0 if y >= @triangle.length
+
     @triangle[y][x] + [max_triangle_path(x + 1, y + 1), max_triangle_path(x, y + 1)].max
   end
 end

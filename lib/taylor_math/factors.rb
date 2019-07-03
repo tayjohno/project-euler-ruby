@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TaylorMath
   # This math library is made to deal with Factors (or numbers that evenly divide other numbers).
   class Factors
@@ -17,6 +19,7 @@ module TaylorMath
         return_array += [i]
         n /= i
         next unless n > 1 && @prime_factors[n]
+
         return_array += @prime_factors[n]
         n /= (TaylorMath::Array.product(@prime_factors[n]) || 1)
         break
@@ -32,6 +35,7 @@ module TaylorMath
 
       # Check if starting_point is a factor, and if not, continue with the next odd number.
       return i if TaylorMath.is_divisible_by(number, i)
+
       i += 1 if i.odd?
       i += 1
 
@@ -39,6 +43,7 @@ module TaylorMath
       # only even prime)
       while i <= Math.sqrt(number)
         return i if TaylorMath.is_divisible_by(number, i)
+
         i += 2
       end
 

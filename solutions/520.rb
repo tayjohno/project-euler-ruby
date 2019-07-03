@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 ######################################
@@ -59,7 +61,7 @@ end
 
 def simber_check(number)
   number_string = number.to_s
-  number_totals = number_string.split('').inject(Hash.new(0)) { |total, e| total[e] += 1; total }
+  number_totals = number_string.split('').each_with_object(Hash.new(0)) { |e, total| total[e] += 1; }
   number_totals.each do |integer, count|
     return false if integer.to_i.odd? && count.even? ||
                     integer.to_i.even? && count.odd?
@@ -88,6 +90,7 @@ def all_number_sets(i, set = { 'odd' => [0, 0, 0, 0, 0], 'even' => [0, 0, 0, 0, 
     # puts set
     return [set]
   end
+
   sets = []
   if odd # If we haven't started even yet
     first_odd_zero = set['odd'].find_index { |i| i == 0 }
@@ -120,6 +123,7 @@ def valid_set(set)
   return false if set['odd'][2] > set['odd'][1]
   return false if set['odd'][3] > set['odd'][2]
   return false if set['odd'][4] > set['odd'][3]
+
   set['even'].each do |i|
     return false if i.odd?
   end
@@ -127,5 +131,6 @@ def valid_set(set)
   return false if set['even'][2] > set['even'][1]
   return false if set['even'][3] > set['even'][2]
   return false if set['even'][4] > set['even'][3]
+
   true
 end

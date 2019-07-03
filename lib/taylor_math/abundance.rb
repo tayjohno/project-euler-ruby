@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TaylorMath
   # This class is meant to help deal with abundance problems.
   #
@@ -7,6 +9,7 @@ module TaylorMath
     @all_abundant_numbers = nil
     def self.all_abundant_numbers
       return @all_abundant_numbers if @all_abundant_numbers
+
       @all_abundant_numbers = []
       i = 12
       while i < 28_123

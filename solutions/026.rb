@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 #####################
@@ -28,6 +30,7 @@ class TwentySix
   def self.loop_length(decimal_string)
     match = /\((\d+)\)/.match(decimal_string)
     return 0 unless match
+
     match[1].length
   end
 
@@ -47,6 +50,7 @@ class TwentySix
 
   def self.detect_loop(decimal_string)
     return false if decimal_string.length < 40
+
     possible_lengths = 1..(decimal_string.length / 2)
     possible_lengths.each do |loop_length|
       loop_string = decimal_string[-loop_length..-1]
@@ -69,11 +73,10 @@ class TwentySix
   def self.shorten_loop(decimal_string, loop_string)
     decimal_string = decimal_string.sub(/(#{loop_string})+$/, '')
     decimal_string += "(#{loop_string})"
-    while match = /(\d)\(.*(\d)\)/.match(decimal_string) and match[1] == match[2]
+    while (match = /(\d)\(.*(\d)\)/.match(decimal_string)) && (match[1] == match[2])
       decimal_string = decimal_string.sub(/\d\(/, "(#{match[1]}")
       decimal_string = decimal_string.sub(/\d\)/, ')')
     end
     decimal_string
   end
-
 end

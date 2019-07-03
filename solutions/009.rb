@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 ###############################
@@ -31,6 +33,7 @@ class Nine
         break if (a**2 + b**2) < (c**2)
 
         return a * b * c if c**2 == a**2 + b**2
+
         b -= 1
       end
       a += 1

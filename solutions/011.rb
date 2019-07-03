@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 #############################
@@ -20,15 +22,11 @@ class Eleven
       while j < height
         if i + 3 < width
           max = [max, ElevenHelper.calculate_accross(@matrix, i, j)].max
-          if j + 3 < height
-            max = [max, ElevenHelper.calculate_diagonal_forward(@matrix, i, j)].max
-          end
+          max = [max, ElevenHelper.calculate_diagonal_forward(@matrix, i, j)].max if j + 3 < height
         end
         if j + 3 < height
           max = [max, ElevenHelper.calculate_down(@matrix, i, j)].max
-          if i - 3 > 0
-            max = [max, ElevenHelper.calculate_diagonal_backward(@matrix, i, j)].max
-          end
+          max = [max, ElevenHelper.calculate_diagonal_backward(@matrix, i, j)].max if i - 3 > 0
         end
         j += 1
       end

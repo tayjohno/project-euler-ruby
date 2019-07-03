@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 ###################
@@ -15,7 +17,7 @@ class TwentyNine
   def solve
     Array.new((@max_base - 1) * (@max_exponent - 1))
          .each_with_index
-         .map { |val, index| value_for_array_index(index) }
+         .map { |_val, index| value_for_array_index(index) }
          .uniq
          .count
   end

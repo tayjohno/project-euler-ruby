@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 ###############################
@@ -15,6 +17,7 @@ class TwentyFive
     loop do
       fib = TaylorMath::FibonacciSequence.get_nth(n)
       return n if fib.to_s.length >= @digits
+
       n += 1
     end
   end

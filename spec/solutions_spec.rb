@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './euler.rb'
 
 RSpec.describe One do
@@ -359,7 +361,7 @@ RSpec.describe TwentyEight do
     expect(TwentyEight.new).to respond_to(:solve)
   end
   it 'should provide the answer with no parameters.' do
-    expect(TwentyEight.new.solve).to eq(669171001)
+    expect(TwentyEight.new.solve).to eq(669_171_001)
   end
   it 'should provide the answer with a given parameter.' do
     expect(TwentyEight.new(5).solve).to eq(101)
@@ -376,7 +378,7 @@ RSpec.describe TwentyNine do
     expect(TwentyNine.new.solve).to eq(9183)
   end
   it 'should provide the answer with a given parameter.' do
-    expect(TwentyNine.new(5,5).solve).to eq(15)
+    expect(TwentyNine.new(5, 5).solve).to eq(15)
   end
 end
 

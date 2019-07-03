@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'colorize'
 require 'timeout'
 require './euler'
@@ -57,7 +59,7 @@ class TaylorTimer
     fastest = nil
 
     (1..total_problems).each do |i|
-      i_string = TaylorMath.wordify(i).gsub(/\b(?<!['â`])[a-z]/) { |match| match.capitalize }.tr('- ', '')
+      i_string = TaylorMath.wordify(i).gsub(/\b(?<!['â`])[a-z]/, &:capitalize).tr('- ', '')
 
       # Capture any stdout from printing.
       original_stdout = $stdout
@@ -73,16 +75,16 @@ class TaylorTimer
           max_time = time
           slowest = i_string
         end
-      rescue Timeout::Error => _
+      rescue Timeout::Error => _e
         time = -1
-      rescue NameError => _
+      rescue NameError => _e
         time = (Object.const_defined?(i_string) ? -3 : -2)
       ensure
         $stdout = original_stdout
       end
 
       spacer = (i.even? ? '.' : ' ')
-      print_string = "#{i_string}:".ljust(30, spacer) + "#{sprintf('%f6', time).rjust(10, spacer)} \u2713"
+      print_string = "#{i_string}:".ljust(30, spacer) + "#{format('%f6', time).rjust(10, spacer)} \u2713"
       case time
       when -3
         puts ("#{i_string}:".ljust(35, spacer) + 'Error').red
@@ -102,12 +104,12 @@ class TaylorTimer
     end
     puts '                                        '.underline
     puts '                 TOTALS                 '.underline
-    puts "Total Time:#{sprintf('%f6', total_time).rjust(29, ' ')}"
-    puts "Average Time:#{sprintf('%f6', total_time / problems_implimented).rjust(27, '.')}"
+    puts "Total Time:#{format('%f6', total_time).rjust(29, ' ')}"
+    puts "Average Time:#{format('%f6', total_time / problems_implimented).rjust(27, '.')}"
     puts "Slowest Solution:#{slowest.rjust(23, '.')}".red
-    puts "Slowest Time:#{sprintf('%f6', max_time).rjust(27, '.')}".red
+    puts "Slowest Time:#{format('%f6', max_time).rjust(27, '.')}".red
     puts "Fastest Solution:#{fastest.rjust(23, '.')}".green
-    puts "Fastest Time:#{sprintf('%f6', min_time).rjust(27, '.')}".green
+    puts "Fastest Time:#{format('%f6', min_time).rjust(27, '.')}".green
     puts "Solutions Implimented:           #{' ' * (3 - problems_implimented.to_s.length)}#{problems_implimented}/#{total_problems}".cyan
     puts
   end

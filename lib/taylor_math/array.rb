@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TaylorMath
   # INTEGER ARRAY FUNCTIONS
   module Array

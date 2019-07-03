@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 #######################################
@@ -16,9 +18,11 @@ class Four
 
     @max_number.downto(1).each do |x|
       break if (x**2) < max_palindrome
+
       x.downto(1).each do |y|
         product = x * y
         next unless TaylorMath.is_palindrome(product)
+
         max_palindrome = product if product > max_palindrome
         break
       end

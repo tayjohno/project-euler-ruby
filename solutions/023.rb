@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 #####################
@@ -20,6 +22,7 @@ class TwentyThree
       while j < length
         sum = all_abundant_numbers[i] + all_abundant_numbers[j]
         break if sum > 28_123
+
         a[sum] = 0
         j += 1
       end

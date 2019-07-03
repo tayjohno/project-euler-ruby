@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require './lib/taylor_math.rb'
 
 #################
@@ -14,6 +16,7 @@ class Seven
     prime_count = 1
     return 0 if @n <= 0
     return 2 if @n == 1
+
     possible_prime = 3
     loop do
       if TaylorMath.is_prime? possible_prime

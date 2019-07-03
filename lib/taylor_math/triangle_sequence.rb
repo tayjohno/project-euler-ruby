@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module TaylorMath
   # This class is meant to help with common problems involving Triangle Sequences.
   class TriangleSequence
@@ -40,16 +42,14 @@ module TaylorMath
   # This class is meant to help with common problems involving Coaltz Sequences.
   class CoaltzSequence
     @sequence_length = { 1 => 1 }
-    def self.next(n)
-      # puts "#{n}"
-      return n / 2 if n.even?
-      3 * n + 1
+    def self.next(val)
+      return val / 2 if val.even?
+
+      3 * val + 1
     end
 
-    def self.length(n)
-      # puts "#{n}:\t#{@sequence_length[n]}"
-      return @sequence_length[n] if @sequence_length[n]
-      @sequence_length[n] = 1 + length(self.next(n))
+    def self.length(val)
+      @sequence_length[val] ||= 1 + length(self.next(val))
     end
   end
 
