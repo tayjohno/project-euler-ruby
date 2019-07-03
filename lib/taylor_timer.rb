@@ -1,4 +1,5 @@
 require 'colorize'
+require 'timeout'
 require './euler'
 
 ###################
@@ -93,7 +94,7 @@ class TaylorTimer
         puts print_string.green
       when 0.1..1
         puts print_string.yellow
-      when 0..90_000
+      when (1..)
         puts print_string.red
       else
         puts "#{i_string}:"..ljust(31, spacer) + "#{tab * 2}Incorrect".red
