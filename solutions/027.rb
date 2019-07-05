@@ -1,5 +1,7 @@
+# typed: true
 # frozen_string_literal: true
 
+require 'sorbet-runtime'
 require './lib/taylor_math.rb'
 
 ####################
@@ -8,15 +10,17 @@ require './lib/taylor_math.rb'
 # Quadratic primes #
 ####################
 class TwentySeven
+  extend T::Sig
+
   def initialize(a_max = 1000, b_max = 1000)
     @a_max = a_max
     @b_max = b_max
   end
 
   def solve
-    a_vals = -(@a_max - 1)..(@a_max - 1)
     primes = TaylorMath.primes_less_than(@b_max)
-    b_vals = primes.reverse.map(&:-@) + primes
+    a_vals = T.let(-(@a_max - 1)..(@a_max - 1), T::Enumerable[Integer])
+    b_vals = T.let(primes.reverse.map(&:-@) + primes, T::Enumerable[Integer])
     max_primes = return_value = j = 0
     a_vals.each do |a|
       b_vals.each do |b|

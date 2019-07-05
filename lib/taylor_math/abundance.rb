@@ -1,4 +1,7 @@
+# typed: strict
 # frozen_string_literal: true
+
+require 'sorbet-runtime'
 
 module TaylorMath
   # This class is meant to help deal with abundance problems.
@@ -6,19 +9,27 @@ module TaylorMath
   # A number n is called deficient if the sum of its proper divisors is less than n and it is called
   # abundant if this sum exceeds n.
   class Abundance
-    @all_abundant_numbers = nil
-    def self.all_abundant_numbers
-      return @all_abundant_numbers if @all_abundant_numbers
+    extend T::Sig
 
-      @all_abundant_numbers = []
-      i = 12
-      while i < 28_123
-        @all_abundant_numbers.push i if abundance(i) > 0
-        i += 1
-      end
-      @all_abundant_numbers
+    @all_abundant_numbers = T.let(nil, T.nilable(T::Array[Integer]))
+
+    sig { returns(T::Array[Integer]) }
+    def self.all_abundant_numbers
+      return @all_abundant_numbers unless @all_abundant_numbers.nil?
+
+      @all_abundant_numbers = calculate_abundant_numbers
     end
 
+    sig { returns(T::Array[Integer]) }
+    def self.calculate_abundant_numbers
+      [].tap do |abundant_numbers|
+        (12..28_123).each do |i|
+          abundant_numbers.push i if abundance(i).positive?
+        end
+      end
+    end
+
+    sig { params(i: Integer).returns(Integer) }
     def self.abundance(i)
       TaylorMath::Array.sum(TaylorMath::Factors.proper_divisors(i)) - i
     end

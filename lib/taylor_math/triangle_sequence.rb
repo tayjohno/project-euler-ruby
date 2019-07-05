@@ -1,53 +1,64 @@
+# typed: strict
 # frozen_string_literal: true
+
+require 'sorbet-runtime'
 
 module TaylorMath
   # This class is meant to help with common problems involving Triangle Sequences.
   class TriangleSequence
-    @sequence = [0]
+    extend T::Sig
+
+    @sequence = T.let([0], T::Array[Integer])
+
+    sig { params(n: Integer).returns(Integer) }
     def self.get_nth(n)
-      if !@sequence[n]
-        triangle_number(n,
-                        starting_number: @sequence.length - 1,
-                        starting_value: @sequence[@sequence.length - 1])
-      else
-        @sequence[n]
-      end
+      return T.must(@sequence[n]) unless @sequence[n].nil?
+
+      triangle_number(n, starting_number: @sequence.length)
     end
 
-    def self.triangle_number(n, options = {})
-      x = options[:starting_number] || 0
-      while x < n
-        x += 1
-        y = @sequence[x] = @sequence[x - 1] + x
+    sig { params(n: Integer, starting_number: Integer).returns(Integer) }
+    def self.triangle_number(n, starting_number: 1)
+      (starting_number..n).each do |x|
+        @sequence[x] = (@sequence[x - 1] || 0) + x
       end
-      y || options[:starting_value] || 0
+      T.must(@sequence[n])
     end
   end
 
   # This class is meant to help with common problems involving Fibonacci Sequences.
   class FibonacciSequence
-    @sequence = [1, 1]
+    extend T::Sig
+
+    @sequence = T.let([1, 1], T::Array[Integer])
+
+    sig { params(n: Integer).returns(Integer) }
     def self.get_nth(n)
       # Return if memoized
-      return @sequence[n - 1] if @sequence[n - 1]
+      return T.must(@sequence[n - 1]) if @sequence[n - 1]
 
       # Calculate all up to this one in order (avoids recursion)
       (@sequence.count..(n - 1)).each do |i|
-        @sequence[i] = @sequence[i - 1] + @sequence[i - 2]
+        @sequence[i] = T.must(@sequence[i - 1]) + T.must(@sequence[i - 2])
       end
-      @sequence[n - 1]
+      T.must(@sequence[n - 1])
     end
   end
 
   # This class is meant to help with common problems involving Coaltz Sequences.
   class CoaltzSequence
-    @sequence_length = { 1 => 1 }
+    extend T::Sig
+
+    @sequence_length = T.let({ 1 => 1 }, T::Hash[Integer, Integer])
+
+    sig { params(val: Integer).returns(Integer) }
     def self.next(val)
       return val / 2 if val.even?
 
       3 * val + 1
     end
 
+    sig { params(val: Integer).returns(Integer) }
     def self.length(val)
       @sequence_length[val] ||= 1 + length(self.next(val))
     end
@@ -55,17 +66,18 @@ module TaylorMath
 
   # This class is meant to help with common problems involving Matrix Paths.
   class MatrixPath
-    @values_hash = {}
+    extend T::Sig
+
+    @values_hash = T.let({}, T::Hash[String, Integer])
+
+    sig { params(width: Integer, height: Integer).returns(Integer) }
     def self.length(width, height)
       return 1 if width.zero? || height.zero?
+      return T.must(@values_hash["#{width}x#{height}"]) if @values_hash["#{width}x#{height}"]
 
-      unless @values_hash["#{width}x#{height}"]
-        value = length(width - 1, height)
-        value += length(width, height - 1)
-        @values_hash["#{width}x#{height}"] = value
-      end
-
-      @values_hash["#{width}x#{height}"]
+      value = length(width - 1, height)
+      value += length(width, height - 1)
+      @values_hash["#{width}x#{height}"] = value
     end
   end
 end

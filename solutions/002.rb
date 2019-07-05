@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 require './lib/taylor_math.rb'
@@ -13,14 +14,14 @@ class Two
   end
 
   def solve
-    array = [1]
+    array = T.let([1], T::Array[Integer])
     sum = 0
     next_number = 2
 
     while next_number <= @max_number
       array += [next_number]
       sum += next_number if next_number.even?
-      next_number += array[array.length - 2]
+      next_number += T.must(array[array.length - 2])
     end
 
     sum

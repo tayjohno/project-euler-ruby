@@ -1,3 +1,4 @@
+# typed: true
 # frozen_string_literal: true
 
 require './lib/taylor_math.rb'
@@ -14,7 +15,7 @@ class Four
 
   def solve
     # Set Initial Values
-    max_palindrome = 0
+    max_palindrome = T.let(0, T.untyped)
 
     @max_number.downto(1).each do |x|
       break if (x**2) < max_palindrome
