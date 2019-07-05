@@ -23,7 +23,7 @@ module TaylorMath
   @is_prime = {}
 
   # Returns true if the number passed in is prime.
-  def self.is_prime?(number)
+  def self.prime?(number)
     # Special cases
     return true if number == 2
     return false if number.even? || number <= 1
@@ -96,33 +96,34 @@ module TaylorMath
   # INTEGER TO STRING METHODS
 
   # Returns true if the number is the same in either direction in base 10.
-  def self.is_palindrome(number)
+  def self.palindrome?(number)
     str = number.to_s
     str.reverse == str
   end
 
   def self.wordify(n)
+    return '' if n.zero?
+
     i = 0
     before = ''
     after = ''
-    if n == 0
-      return ''
-    elsif n >= 1000
+
+    if n >= 1000
       i = n / 1000
       n = n % 1000
       after = ' thousand'
-      after += ' ' if n > 0
-      after += 'and ' if n < 100 && n > 0
+      after += ' ' if n.positive?
+      after += 'and ' if n < 100 && n.positive?
     elsif n >= 100
       i = n / 100
       n = n % 100
       after = ' hundred'
-      after += ' and ' if n > 0
+      after += ' and ' if n.positive?
 
     elsif n >= 10
+      i = 0
       case n
       when 10..19
-        i = 0
         case n
         when 10
           return 'ten'
@@ -145,9 +146,7 @@ module TaylorMath
         else
           return 'nineteen'
         end
-        n = 0
       else
-        i = 0
         case n
         when 20
           return 'twenty'

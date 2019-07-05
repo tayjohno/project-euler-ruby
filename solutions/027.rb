@@ -22,7 +22,7 @@ class TwentySeven
       b_vals.each do |b|
         j += 1
         i = 0
-        i += 1 while TaylorMath.is_prime?(i**2 + i * a + b)
+        i += 1 while TaylorMath.prime?(i**2 + i * a + b)
         if i > max_primes
           max_primes = i
           return_value = a * b

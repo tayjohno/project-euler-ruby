@@ -38,7 +38,7 @@ class TwentySix
     decimal_string = "#{numerator / denominator}."
     numerator = (numerator % denominator) * 10
 
-    until numerator.zero? || loop_match = detect_loop(decimal_string)
+    until numerator.zero? || (loop_match = detect_loop(decimal_string))
       denominator.times do # Calculate out 10 numbers at a time to prevent from over-detecting
         decimal_string += (numerator / denominator).to_s
         numerator = (numerator % denominator) * 10
@@ -56,10 +56,6 @@ class TwentySix
       loop_string = decimal_string[-loop_length..-1]
       match = /(#{loop_string})+$/.match(decimal_string)
       loop_requirement = [loop_length * 2, 20].max
-      # puts loop_string
-      # puts match
-      # puts "length: #{match.length}"
-      # puts "requirement: #{loop_requirement}"
       return match if match.to_s.length > loop_requirement
     end
     false

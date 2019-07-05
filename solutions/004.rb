@@ -21,7 +21,7 @@ class Four
 
       x.downto(1).each do |y|
         product = x * y
-        next unless TaylorMath.is_palindrome(product)
+        next unless TaylorMath.palindrome?(product)
 
         max_palindrome = product if product > max_palindrome
         break

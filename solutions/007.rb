@@ -19,7 +19,7 @@ class Seven
 
     possible_prime = 3
     loop do
-      if TaylorMath.is_prime? possible_prime
+      if TaylorMath.prime? possible_prime
         prime_count += 1
         return possible_prime if prime_count == @n
       end

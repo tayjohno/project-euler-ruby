@@ -16,7 +16,9 @@ class Six
 
   # One-line solution
   def solve
+    # rubocop:disable Metrics/LineLength
     TaylorMath::Array.sum(1..@max_number)**2 - TaylorMath::Array.sum((1..@max_number).map { |i| i**2 })
+    # rubocop:enable Metrics/LineLength
   end
 
   # Just a longer, readable version.

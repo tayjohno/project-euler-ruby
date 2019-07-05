@@ -1,5 +1,8 @@
+Layout/AccessModifierIndentation:
+  EnforcedStyle: outdent
+
 Metrics/LineLength:
   Max: 100
 
-Layout/AccessModifierIndentation:
-  EnforcedStyle: outdent
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
