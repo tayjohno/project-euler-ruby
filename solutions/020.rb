@@ -1,6 +1,7 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
+require 'sorbet-runtime'
 require './lib/taylor_math.rb'
 
 #######################
@@ -9,10 +10,14 @@ require './lib/taylor_math.rb'
 # Factorial Digit Sum #
 #######################
 class Twenty
+  extend T::Sig
+
+  sig { params(n: Integer).void }
   def initialize(n = 100)
-    @n = n
+    @n = T.let(n, Integer)
   end
 
+  sig { returns(Integer) }
   def solve
     i = @n
     sum = 1

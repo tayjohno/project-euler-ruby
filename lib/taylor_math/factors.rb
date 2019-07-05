@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 module TaylorMath
@@ -12,7 +12,7 @@ module TaylorMath
 
       return_array = []
       n = number
-      i = 2
+      i = T.let(2, T.untyped)
 
       # Largest possible factor is self, 2nd largest is sqrt(self).
       while i <= Math.sqrt(n)
@@ -22,7 +22,7 @@ module TaylorMath
         next unless n > 1 && @prime_factors[n]
 
         return_array += @prime_factors[n]
-        n /= (TaylorMath::Array.product(@prime_factors[n]) || 1)
+        n /= TaylorMath::Array.product(@prime_factors[n])
         break
       end
 

@@ -21,7 +21,7 @@ class TwentyThree
 
     while i < length
       while j < length
-        sum = all_abundant_numbers[i] + all_abundant_numbers[j]
+        sum = T.must(all_abundant_numbers[i]) + T.must(all_abundant_numbers[j])
         break if sum > 28_123
 
         a[sum] = 0

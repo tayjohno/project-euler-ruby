@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 require 'colorize'
+require 'sorbet-runtime'
 require_relative 'taylor_timer'
 require_relative '../euler'
 

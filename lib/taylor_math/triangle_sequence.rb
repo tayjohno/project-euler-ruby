@@ -1,27 +1,28 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
+
+require 'sorbet-runtime'
 
 module TaylorMath
   # This class is meant to help with common problems involving Triangle Sequences.
   class TriangleSequence
-    @sequence = [0]
+    extend T::Sig
+
+    @sequence = T.let([0], T::Array[Integer])
+
+    sig { params(n: Integer).returns(Integer) }
     def self.get_nth(n)
-      if !@sequence[n]
-        triangle_number(n,
-                        starting_number: @sequence.length - 1,
-                        starting_value: @sequence[@sequence.length - 1])
-      else
-        @sequence[n]
-      end
+      return T.must(@sequence[n]) unless @sequence[n].nil?
+
+      triangle_number(n, starting_number: @sequence.length)
     end
 
-    def self.triangle_number(n, options = {})
-      x = options[:starting_number] || 0
-      while x < n
-        x += 1
-        y = @sequence[x] = @sequence[x - 1] + x
+    sig { params(n: Integer, starting_number: Integer).returns(Integer) }
+    def self.triangle_number(n, starting_number: 1)
+      (starting_number..n).each do |x|
+        @sequence[x] = (@sequence[x - 1] || 0) + x
       end
-      y || options[:starting_value] || 0
+      T.must(@sequence[n])
     end
   end
 
@@ -42,13 +43,18 @@ module TaylorMath
 
   # This class is meant to help with common problems involving Coaltz Sequences.
   class CoaltzSequence
-    @sequence_length = { 1 => 1 }
+    extend T::Sig
+
+    @sequence_length = T.let({ 1 => 1 }, T::Hash[Integer, Integer])
+
+    sig { params(val: Integer).returns(Integer) }
     def self.next(val)
       return val / 2 if val.even?
 
       3 * val + 1
     end
 
+    sig { params(val: Integer).returns(Integer) }
     def self.length(val)
       @sequence_length[val] ||= 1 + length(self.next(val))
     end

@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require './lib/taylor_math.rb'
@@ -24,8 +24,8 @@ class Six
 
   # Just a longer, readable version.
   def solve_readable
-    squared_sum = TaylorMath.sum(1..max_number)**2
-    summed_squares = TaylorMath.sum((1..max_number).map { |i| i**2 })
+    squared_sum = TaylorMath::Array.sum(1..@max_number)**2
+    summed_squares = TaylorMath::Array.sum((1..@max_number).map { |i| i**2 })
     squared_sum - summed_squares
   end
 end
