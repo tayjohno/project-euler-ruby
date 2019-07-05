@@ -7,6 +7,8 @@ require_relative '../euler'
 # EulerReport benchmarks all implemented Euler solutions, and prints out a human-readable report of
 # the results.
 class EulerReport
+  LINE_LENGTH = 40
+
   def self.benchmark
     new.benchmark
   end
@@ -59,7 +61,7 @@ private
 
     spacer = (problem_number.even? ? '.' : ' ')
     print_string =
-      "#{number_string}:".ljust(30, spacer) + "#{format('%f6', time).rjust(10, spacer)} \u2713"
+      "#{number_string}:".ljust(30, spacer) + "#{time_string(time).rjust(10, spacer)} ✓"
     case time
     when -4 # TODO: Should check if answer is correct.
       puts "#{number_string}:"..ljust(31, spacer) + "#{tab * 2}Incorrect".red
@@ -79,19 +81,39 @@ private
   end
 
   def print_title(title)
-    puts((' ' * 40).underline)
-    puts(title.upcase.center(40, ' ').underline)
+    puts((' ' * LINE_LENGTH).underline)
+    puts(title.upcase.center(LINE_LENGTH, ' ').underline)
   end
 
-  def print_totals
-    puts "Total Time:#{format('%f6', total_time).rjust(29, ' ')}"
-    puts "Average Time:#{format('%f6', total_time / problems_implimented).rjust(27, '.')}"
-    puts "Slowest Solution:#{slowest.rjust(23, '.')}".red
-    puts "Slowest Time:#{format('%f6', max_time).rjust(27, '.')}".red
-    puts "Fastest Solution:#{fastest.rjust(23, '.')}".green
-    puts "Fastest Time:#{format('%f6', min_time).rjust(27, '.')}".green
-    puts 'Solutions Implimented:'.cyan +
-      "#{problems_implimented}/#{total_problems}".rjust(18, ' ').cyan
-    puts
+  def format_line(title, value, color = :white, separator: ' ')
+    prefix = title + ':'
+    suffix_length = LINE_LENGTH - prefix.length
+    suffix = value.rjust(suffix_length, separator)
+    (prefix + suffix).colorize(color)
+  end
+
+  def time_string(seconds)
+    format('%<seconds>.6f', seconds: seconds)
+  end
+
+  def average_time
+    total_time / problems_implimented
+  end
+
+  def implemented_string
+    "#{problems_implimented}/#{total_problems}"
+  end
+
+  def print_totals # rubocop:disable Metrics/AbcSize
+    puts format_line('Total Time',   time_string(total_time))
+    puts format_line('Average Time', time_string(average_time))
+
+    puts format_line('Slowest Solution', slowest,               :red)
+    puts format_line('Slowest Time',     time_string(max_time), :red)
+
+    puts format_line('Fastest Solution', fastest,               :green)
+    puts format_line('Fastest Time',     time_string(min_time), :green)
+
+    puts format_line('Solutions Implimented', implemented_string, :cyan)
   end
 end
