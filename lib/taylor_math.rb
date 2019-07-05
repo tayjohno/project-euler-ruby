@@ -1,14 +1,14 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
-require 'set'
 require 'prime'
+require 'set'
+require 'sorbet-runtime'
 require './lib/taylor_math/abundance.rb'
 require './lib/taylor_math/array.rb'
 require './lib/taylor_math/factors.rb'
 require './lib/taylor_math/triangle_sequence.rb'
 require './lib/taylor_math/probability.rb'
-# require 'profile'
 
 # This module is responsible for doing all sorts of mathy things that I wanted to impliment myself.
 # Some of these operations may have existing functionality in Ruby that I'm either unaware of, or
@@ -80,7 +80,7 @@ module TaylorMath
   # end
 
   def self.primes_less_than(number)
-    return_array = [false, false]
+    return_array = T.let([false, false], T::Array[T::Boolean])
     (2..(number - 1)).each do |i|
       next unless return_array[i].nil?
 
@@ -91,7 +91,9 @@ module TaylorMath
         j += i
       end
     end
-    return_array.fill { |l| return_array[l] ? l : false }.select { |x| x }
+    return_array.each_with_object([]).with_index do |(bool, primes), index|
+      primes << index if bool
+    end
   end
 
   # INTEGER TO STRING METHODS

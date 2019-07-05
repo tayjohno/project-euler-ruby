@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require 'colorize'
@@ -66,7 +66,7 @@ private
       "#{number_string}:".ljust(30, spacer) + "#{time_string(time).rjust(10, spacer)} ✓"
     case time
     when -4 # TODO: Should check if answer is correct.
-      puts "#{number_string}:"..ljust(31, spacer) + "#{tab * 2}Incorrect".red
+      puts(("#{number_string}:".ljust(31, spacer) + 'Incorrect').red)
     when -3
       puts(("#{number_string}:".ljust(35, spacer) + 'Error').red)
     when -2

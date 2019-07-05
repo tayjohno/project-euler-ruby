@@ -1,4 +1,4 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
 require 'timeout'
@@ -35,14 +35,14 @@ class TaylorTimer
   end
 
   def time_block(timeout: 60, times: 1)
-    timer.start
+    start
     times.times do
       Timeout.timeout(timeout) do
         yield
       end
     end
-    timer.stop
-    timer.time
+    stop
+    time
   end
 
   def self.time_block(timeout: 60, times: 1)

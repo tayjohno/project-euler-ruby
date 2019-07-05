@@ -1,6 +1,7 @@
-# typed: false
+# typed: true
 # frozen_string_literal: true
 
+require 'sorbet-runtime'
 require './lib/taylor_math.rb'
 
 #####################
@@ -9,15 +10,19 @@ require './lib/taylor_math.rb'
 # Reciprocal cycles #
 #####################
 class TwentySix
+  extend T::Sig
+
+  sig { params(digits: Integer).void }
   def initialize(digits = 999)
     @digits = digits
   end
 
+  sig { returns(Integer) }
   def solve
     max_length = 0
     longest_digit = 0
 
-    (1..@digits).each do |i|
+    T.let((1..@digits), T::Range[Integer]).each do |i|
       string = TwentySix.decimal_string(1, i)
       # puts string
       if max_length < [max_length, TwentySix.loop_length(string)].max
@@ -28,16 +33,19 @@ class TwentySix
     longest_digit
   end
 
+  sig { params(decimal_string: String).returns(Integer) }
   def self.loop_length(decimal_string)
     match = /\((\d+)\)/.match(decimal_string)
     return 0 unless match
 
-    match[1].length
+    (match[1]&.length || 0)
   end
 
+  sig { params(numerator: Integer, denominator: Integer).returns(String) }
   def self.decimal_string(numerator, denominator)
     decimal_string = "#{numerator / denominator}."
     numerator = (numerator % denominator) * 10
+    loop_match = T.let(nil, T.nilable(MatchData))
 
     until numerator.zero? || (loop_match = detect_loop(decimal_string))
       denominator.times do # Calculate out 10 numbers at a time to prevent from over-detecting
@@ -49,8 +57,9 @@ class TwentySix
     numerator.zero? ? decimal_string.sub(/0+$/, '') : loop_format(decimal_string, loop_match)
   end
 
+  sig { params(decimal_string: String).returns(T.nilable(MatchData)) }
   def self.detect_loop(decimal_string)
-    return false if decimal_string.length < 40
+    return nil if decimal_string.length < 40
 
     possible_lengths = 1..(decimal_string.length / 2)
     possible_lengths.each do |loop_length|
@@ -59,7 +68,7 @@ class TwentySix
       loop_requirement = [loop_length * 2, 20].max
       return match if match.to_s.length > loop_requirement
     end
-    false
+    nil
   end
 
   def self.loop_format(decimal_string, loop_match)
