@@ -1,4 +1,4 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
 
 require 'sorbet-runtime'
@@ -28,16 +28,20 @@ module TaylorMath
 
   # This class is meant to help with common problems involving Fibonacci Sequences.
   class FibonacciSequence
-    @sequence = [1, 1]
+    extend T::Sig
+
+    @sequence = T.let([1, 1], T::Array[Integer])
+
+    sig { params(n: Integer).returns(Integer) }
     def self.get_nth(n)
       # Return if memoized
-      return @sequence[n - 1] if @sequence[n - 1]
+      return T.must(@sequence[n - 1]) if @sequence[n - 1]
 
       # Calculate all up to this one in order (avoids recursion)
       (@sequence.count..(n - 1)).each do |i|
-        @sequence[i] = @sequence[i - 1] + @sequence[i - 2]
+        @sequence[i] = T.must(@sequence[i - 1]) + T.must(@sequence[i - 2])
       end
-      @sequence[n - 1]
+      T.must(@sequence[n - 1])
     end
   end
 
@@ -62,17 +66,18 @@ module TaylorMath
 
   # This class is meant to help with common problems involving Matrix Paths.
   class MatrixPath
-    @values_hash = {}
+    extend T::Sig
+
+    @values_hash = T.let({}, T::Hash[String, Integer])
+
+    sig { params(width: Integer, height: Integer).returns(Integer) }
     def self.length(width, height)
       return 1 if width.zero? || height.zero?
+      return T.must(@values_hash["#{width}x#{height}"]) if @values_hash["#{width}x#{height}"]
 
-      unless @values_hash["#{width}x#{height}"]
-        value = length(width - 1, height)
-        value += length(width, height - 1)
-        @values_hash["#{width}x#{height}"] = value
-      end
-
-      @values_hash["#{width}x#{height}"]
+      value = length(width - 1, height)
+      value += length(width, height - 1)
+      @values_hash["#{width}x#{height}"] = value
     end
   end
 end

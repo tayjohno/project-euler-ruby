@@ -1,18 +1,23 @@
-# typed: true
+# typed: strict
 # frozen_string_literal: true
+
+require 'sorbet-runtime'
 
 module TaylorMath
   # This math library is made to deal with Factors (or numbers that evenly divide other numbers).
   class Factors
-    @prime_factors = {}
+    extend T::Sig
+
+    @prime_factors = T.let({}, T::Hash[Integer, T::Array[Integer]])
 
     # Returns all prime factors of a number.
+    sig { params(number: Integer).returns(T::Array[Integer]) }
     def self.prime_factors(number)
-      return @prime_factors[number] if @prime_factors[number]
+      return T.must(@prime_factors[number]) unless @prime_factors[number].nil?
 
-      return_array = []
+      return_array = T.let([], T::Array[Integer])
       n = number
-      i = T.let(2, T.untyped)
+      i = 2
 
       # Largest possible factor is self, 2nd largest is sqrt(self).
       while i <= Math.sqrt(n)
@@ -21,8 +26,8 @@ module TaylorMath
         n /= i
         next unless n > 1 && @prime_factors[n]
 
-        return_array += @prime_factors[n]
-        n /= TaylorMath::Array.product(@prime_factors[n])
+        return_array += T.must(@prime_factors[n])
+        n /= TaylorMath::Array.product(T.must(@prime_factors[n]))
         break
       end
 
@@ -31,6 +36,7 @@ module TaylorMath
     end
 
     # Returns the smallest prime factor of a given number
+    sig { params(number: Integer, starting_point: Integer).returns(Integer) }
     def self.smallest_prime_factor(number, starting_point = 2)
       i = starting_point
 
@@ -51,12 +57,14 @@ module TaylorMath
       number
     end
 
+    sig { params(number: Integer).returns(T::Set[Integer]) }
     def self.all_factors(number)
       s1 = Set.new [1]
       prime_factors(number).each { |i| s1 += (s1.collect { |j| j * i }) }
       s1
     end
 
+    sig { params(number: Integer).returns(T::Set[Integer]) }
     def self.proper_divisors(number)
       all_factors(number).delete(number)
     end
